@@ -1,16 +1,14 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb",
-    "plugin:prettier/recommended"
-  ],
+  "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": [
+    "@typescript-eslint", "prettier"
+  ],
+  "extends": ["plugin:@typescript-eslint/recommended"],
   "rules": {
-    "prettier/prettier": "error",
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "args": "after-used" }],
+    "no-unused-vars": ["error", { "args": "after-used" }],
+    "prettier/prettier": "error"
   }
 }
