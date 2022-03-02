@@ -38,14 +38,3 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-
-    - name: Build monorepo
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'
-      run: npm install
-
-    - name: Run postinstall
-      if: steps.cache-node-modules.outputs.cache-hit == 'true'
-      run: npm run postinstall
-
-    - name: Typescript
-      run: npm run type-check
