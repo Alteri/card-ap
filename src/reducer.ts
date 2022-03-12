@@ -1,11 +1,12 @@
 import { Action } from "./action";
+import { TaskType } from "./types";
 
 export type CardsState = {
   cards: {
     id: number;
     title: string;
     description: string;
-    group: string;
+    group: TaskType;
   }[];
 };
 
