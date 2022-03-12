@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../fetchCards";
 import { CardsState } from "../reducer";
+import { Page } from "../components/Page";
+import { CardList } from "../components/CardList";
 
 const index = () => {
   const dispatch = useDispatch();
@@ -14,17 +16,9 @@ const index = () => {
   );
 
   return (
-    <>
-      {cardsArr.map(({ id, title, description, group }) => {
-        return (
-          <div key={id}>
-            <p>{title}</p>
-            <p>{description}</p>
-            <p>{group}</p>
-          </div>
-        );
-      })}
-    </>
+    <Page>
+      <CardList itemList={cardsArr} />
+    </Page>
   );
 };
 

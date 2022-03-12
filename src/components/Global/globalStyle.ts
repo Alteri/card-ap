@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap');
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
         display: block;
     }
     body {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Inter', sans-serif;
         line-height: 1;
     }
     ol, ul {
@@ -49,4 +49,9 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+}
 `;

@@ -1,10 +1,12 @@
+import { TaskType } from "./types";
+
 export type FetchCardSuccessProps = {
   type: "FETCH_CARDS_SUCCESS";
   payload: {
     id: number;
     title: string;
     description: string;
-    group: string;
+    group: TaskType;
   }[];
 };
 
@@ -20,7 +22,7 @@ export const fetchCardSuccess = (
     id: number;
     title: string;
     description: string;
-    group: string;
+    group: TaskType;
   }[]
 ): FetchCardSuccessProps => ({
   type: "FETCH_CARDS_SUCCESS",
