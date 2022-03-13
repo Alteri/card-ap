@@ -12,6 +12,7 @@ export type CardsState = {
 
 const initialState = {
   cards: [],
+  error: false,
 };
 
 export const rootReducer = (
@@ -28,6 +29,11 @@ export const rootReducer = (
       return {
         ...state,
         error: action.payload,
+      };
+    case "REMOVE_CARD":
+      return {
+        ...state,
+        cards: state.cards.filter((_, index) => index !== action.payload),
       };
     default:
       return state;

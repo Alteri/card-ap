@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeCard } from "../../action";
 import {
   CardItemStytled,
   CardItemHeader,
@@ -6,21 +8,30 @@ import {
   RowWithIcon,
   FooterLeftColumn,
   FooterRightColumn,
+  ButtonRemoveCard,
 } from "./styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
-import { Team, Clock } from "../Icon";
+import { Team, Clock, X } from "../Icon";
 import { TaskIcon } from "../TaskIcon";
 import { TaskType } from "../../types";
 
 export type CardItemProps = {
-  title?: string;
-  taskType?: TaskType;
+  title: string;
+  taskType: TaskType;
+  id: number;
 };
 
-export const CardItem = ({ title, taskType }: CardItemProps) => {
+export const CardItem = ({ title, taskType, id }: CardItemProps) => {
+  const dispatch = useDispatch();
+  function cardRemove(index: number) {
+    dispatch(removeCard(index));
+  }
   return (
     <CardItemStytled taskType={taskType}>
+      <ButtonRemoveCard onClick={() => cardRemove(id)}>
+        <X color={Colors.black} />
+      </ButtonRemoveCard>
       <CardItemHeader gap="8">
         <TaskIcon taskType={taskType} />
         <Text textType="h3">{title}</Text>

@@ -11,8 +11,8 @@ export type CardListProps = {
 export const CardList = ({ itemList }: CardListProps) => {
   return (
     <CardListStyled>
-      {itemList.map(({ id, title, group }) => {
-        return <CardItem title={title} taskType={group} key={id} />;
+      {itemList.map(({ id, title, group }, index) => {
+        return <CardItem title={title} taskType={group} key={id} id={index} />;
       })}
     </CardListStyled>
   );
