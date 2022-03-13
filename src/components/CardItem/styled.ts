@@ -3,8 +3,20 @@ import { Colors } from "../Global";
 import { Grid } from "../Grid";
 import { TaskType } from "../../types";
 
+export const ButtonRemoveCard = styled.button`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+`;
+
 export const CardItemStytled = styled.div<{ taskType?: TaskType }>`
   display: grid;
+  position: relative;
   grid-gap: 24px;
   width: 100%;
   border-radius: 32px;
@@ -17,6 +29,10 @@ export const CardItemStytled = styled.div<{ taskType?: TaskType }>`
     ${({ taskType }) =>
       taskType &&
       `box-shadow: 0px 0px 8px 2px ${Colors.taskTypeToColor[taskType]};`}
+
+    ${ButtonRemoveCard} {
+      opacity: 1;
+    }
   }
 `;
 

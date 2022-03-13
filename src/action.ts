@@ -15,7 +15,15 @@ export type FetchCardErrorProps = {
   payload: string;
 };
 
-export type Action = FetchCardSuccessProps | FetchCardErrorProps;
+export type RemoveCardProps = {
+  type: "REMOVE_CARD";
+  payload: number;
+};
+
+export type Action =
+  | FetchCardSuccessProps
+  | FetchCardErrorProps
+  | RemoveCardProps;
 
 export const fetchCardSuccess = (
   card: {
@@ -32,4 +40,9 @@ export const fetchCardSuccess = (
 export const fetchCardError = (error: string): FetchCardErrorProps => ({
   type: "FETCH_CARDS_ERROR",
   payload: error,
+});
+
+export const removeCard = (id: number): RemoveCardProps => ({
+  type: "REMOVE_CARD",
+  payload: id,
 });
