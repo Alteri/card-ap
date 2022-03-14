@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { Colors } from "./index";
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap');
@@ -29,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Inter', sans-serif;
         line-height: 1;
+        background: ${Colors.gray};
     }
     ol, ul {
         list-style: none;
