@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../fetchCards";
 import { CardsState } from "../reducer";
@@ -17,8 +17,6 @@ const index = () => {
   const cardsArr = useSelector<CardsState, CardsState["cards"]>(
     (state) => state.cards
   );
-
-  const [showForm, setShowForm] = useState();
 
   return (
     <>
