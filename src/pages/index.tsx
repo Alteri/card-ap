@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../fetchCards";
 import { CardsState } from "../reducer";
-import { Page } from "../components/Page";
+import { Container } from "../components/Container";
 import { CardList } from "../components/CardList";
+import { NavigationBar } from "../components/NavigationBar";
+import { Button } from "../components/Button";
+import { Plus } from "../components/Icon/";
 
 const index = () => {
   const dispatch = useDispatch();
@@ -16,9 +19,16 @@ const index = () => {
   );
 
   return (
-    <Page>
-      <CardList itemList={cardsArr} />
-    </Page>
+    <>
+      <Container>
+        <CardList itemList={cardsArr} />
+      </Container>
+      <NavigationBar>
+        <Button>
+          <Plus />
+        </Button>
+      </NavigationBar>
+    </>
   );
 };
 

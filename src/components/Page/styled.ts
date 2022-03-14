@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Colors } from "../Global";
 
-export const PageStyled = styled.div`
-  padding: 24px;
+export const Page = styled.div`
   min-height: 100vh;
-  background: ${Colors.gray};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
