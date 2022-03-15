@@ -7,10 +7,11 @@ const Icon = ({
   color = Colors.white,
   size = "20px",
   className,
+  onClick,
   ...rest
 }: IconProps) => {
   return (
-    <IconWrapper size={size} className={className} {...rest}>
+    <IconWrapper size={size} className={className} onClick={onClick} {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
