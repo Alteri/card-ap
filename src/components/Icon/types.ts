@@ -15,4 +15,5 @@ export type IconProps = {
   color?: string;
   size?: IconSize;
   className?: string;
+  onClick?: () => void;
 };

@@ -1,5 +1,8 @@
 import { TaskType } from "../../types";
 
+export const primary = "#283593";
+export const primaryLight = "#5f5fc4";
+export const primaryDark = "#001064";
 export const black = "#000";
 export const white = "#fff";
 export const gray = "#f5f7fa";
