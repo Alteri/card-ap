@@ -26,6 +26,7 @@ export const BuildThresholdList = () => {
 };
 
 let isModalVisible = false;
+let closeByClick = false;
 
 export const PopupModal = ({
   children,
@@ -59,13 +60,15 @@ export const PopupModal = ({
           if (
             scrollRef.current &&
             entry.intersectionRatio < 0.3 &&
-            isModalVisible
+            isModalVisible &&
+            !closeByClick
           ) {
             scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
           }
           if (entry.intersectionRatio < 0.05 && isModalVisible) {
             onClose?.();
             isModalVisible = false;
+            closeByClick = false;
           }
           if (scrollRef.current) {
             scrollRef.current.style.background = `rgba(0,0,0,${Math.min(
@@ -86,11 +89,18 @@ export const PopupModal = ({
     };
   }, [scrollRef, modalRef, open]);
 
+  const closeModal = () => {
+    if (scrollRef.current && modalRef.current) {
+      scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      closeByClick = true;
+    }
+  };
+
   return (
     <>
       {open && (
         <PopupModalStyled ref={scrollRef}>
-          <Content ref={modalRef}>
+          <Content ref={modalRef} onClick={() => closeModal()}>
             <ExitIcon color={Colors.black} />
             <Grid gap="4">
               <Text textType="h2">{title}</Text>
