@@ -6,4 +6,5 @@ export { default as Phone } from "./Icons/Phone";
 export { default as Camera } from "./Icons/Camera";
 export { default as X } from "./Icons/X";
 export { default as Plus } from "./Icons/Plus";
+export { default as ChevronDown } from "./Icons/ChevronDown";
 export type { IconProps } from "./types";

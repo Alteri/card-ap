@@ -100,13 +100,15 @@ export const PopupModal = ({
     <>
       {open && (
         <PopupModalStyled ref={scrollRef}>
-          <Content ref={modalRef} onClick={() => closeModal()}>
-            <ExitIcon color={Colors.black} />
-            <Grid gap="4">
-              <Text textType="h2">{title}</Text>
-              <Text>{subTitle}</Text>
+          <Content ref={modalRef}>
+            <ExitIcon color={Colors.black} onClick={() => closeModal()} />
+            <Grid gap="16">
+              <div>
+                <Text textType="h2">{title}</Text>
+                <Text>{subTitle}</Text>
+              </div>
+              {children}
             </Grid>
-            {children}
           </Content>
         </PopupModalStyled>
       )}

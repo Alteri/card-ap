@@ -5,7 +5,7 @@ import { CardsState } from "../reducer";
 import { Container } from "../components/Container";
 import { CardList } from "../components/CardList";
 import { NavigationBar } from "../components/NavigationBar";
-import { Button } from "../components/Button";
+import { IconButton } from "../components/IconButton";
 import { Plus } from "../components/Icon/";
 import { PopupModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
@@ -36,9 +36,9 @@ const index = () => {
         <AddCardForm />
       </PopupModal>
       <NavigationBar>
-        <Button onClick={() => setOpenModal(!openModal)}>
+        <IconButton onClick={() => setOpenModal(!openModal)}>
           <Plus />
-        </Button>
+        </IconButton>
       </NavigationBar>
     </>
   );

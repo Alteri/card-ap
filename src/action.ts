@@ -1,13 +1,8 @@
-import { TaskType } from "./types";
+import { CardProps } from "./types";
 
 export type FetchCardSuccessProps = {
   type: "FETCH_CARDS_SUCCESS";
-  payload: {
-    id: number;
-    title: string;
-    description: string;
-    group: TaskType;
-  }[];
+  payload: CardProps[];
 };
 
 export type FetchCardErrorProps = {
@@ -20,19 +15,18 @@ export type RemoveCardProps = {
   payload: number;
 };
 
+export type AddCardProps = {
+  type: "ADD_CARD";
+  payload: CardProps;
+};
+
 export type Action =
   | FetchCardSuccessProps
   | FetchCardErrorProps
-  | RemoveCardProps;
+  | RemoveCardProps
+  | AddCardProps;
 
-export const fetchCardSuccess = (
-  card: {
-    id: number;
-    title: string;
-    description: string;
-    group: TaskType;
-  }[]
-): FetchCardSuccessProps => ({
+export const fetchCardSuccess = (card: CardProps[]): FetchCardSuccessProps => ({
   type: "FETCH_CARDS_SUCCESS",
   payload: card,
 });
@@ -45,4 +39,9 @@ export const fetchCardError = (error: string): FetchCardErrorProps => ({
 export const removeCard = (id: number): RemoveCardProps => ({
   type: "REMOVE_CARD",
   payload: id,
+});
+
+export const addCard = (card: CardProps): AddCardProps => ({
+  type: "ADD_CARD",
+  payload: card,
 });

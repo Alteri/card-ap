@@ -1,13 +1,8 @@
 import { Action } from "./action";
-import { TaskType } from "./types";
+import { CardProps } from "./types";
 
 export type CardsState = {
-  cards: {
-    id: number;
-    title: string;
-    description: string;
-    group: TaskType;
-  }[];
+  cards: CardProps[];
 };
 
 const initialState = {
@@ -34,6 +29,11 @@ export const rootReducer = (
       return {
         ...state,
         cards: state.cards.filter((_, index) => index !== action.payload),
+      };
+    case "ADD_CARD":
+      return {
+        ...state,
+        cards: [...state.cards, action.payload],
       };
     default:
       return state;
