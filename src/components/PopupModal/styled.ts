@@ -16,7 +16,6 @@ export const Content = styled.div`
   background: ${Colors.white};
   border-radius: 32px 32px 0 0;
   padding: 24px;
-  height: 50vh;
   width: 100%;
   margin-top: 100vh;
   position: relative;
@@ -24,7 +23,7 @@ export const Content = styled.div`
 
 export const ExitIcon = styled(X)`
   position: absolute;
-  right: 16px;
-  top: 16px;
+  right: 24px;
+  top: 24px;
   cursor: pointer;
 `;

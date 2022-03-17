@@ -3,9 +3,8 @@ import { ButtonStyled } from "./styled";
 
 export type ButtonProps = {
   children: ReactNode;
-  onClick: () => void;
 };
 
-export const Button = ({ children, ...props }: ButtonProps) => {
-  return <ButtonStyled {...props}>{children}</ButtonStyled>;
+export const Button = ({ children }: ButtonProps) => {
+  return <ButtonStyled>{children}</ButtonStyled>;
 };

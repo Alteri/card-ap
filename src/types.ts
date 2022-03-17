@@ -4,3 +4,8 @@ export enum TaskType {
   Business = "Business",
   CampaignStore = "Campaign Store",
 }
+
+export type CardProps = {
+  title: string;
+  group: TaskType;
+};
