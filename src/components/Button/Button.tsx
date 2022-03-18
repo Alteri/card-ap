@@ -5,6 +5,6 @@ export type ButtonProps = {
   children: ReactNode;
 };
 
-export const Button = ({ children }: ButtonProps) => {
-  return <ButtonStyled>{children}</ButtonStyled>;
+export const Button = ({ children, ...props }: ButtonProps) => {
+  return <ButtonStyled {...props}>{children}</ButtonStyled>;
 };
