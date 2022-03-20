@@ -3,6 +3,7 @@ import { PopupModalStyled, Content, ExitIcon } from "./styled";
 import { Text } from "../Text";
 import { Grid } from "../Grid";
 import { Colors } from "../Global";
+import { BuildThresholdList } from "../utils/BuildThresholdList";
 
 export type PopupModalProps = {
   children: ReactNode;
@@ -12,21 +13,10 @@ export type PopupModalProps = {
   subTitle?: string;
 };
 
-export const BuildThresholdList = () => {
-  const thresholds = [];
-  const numSteps = 20;
-
-  for (let i = 1.0; i <= numSteps; i++) {
-    const ratio = i / numSteps;
-    thresholds.push(ratio);
-  }
-
-  thresholds.push(0);
-  return thresholds;
-};
-
 let isModalVisible = false;
 let closeByClick = false;
+
+export let closeModal: () => void;
 
 export const PopupModal = ({
   children,
@@ -80,7 +70,6 @@ export const PopupModal = ({
       };
 
       observer = new IntersectionObserver(callback, options);
-
       observer.observe(modalRef.current);
     }
 
@@ -89,7 +78,7 @@ export const PopupModal = ({
     };
   }, [scrollRef, modalRef, open]);
 
-  const closeModal = () => {
+  closeModal = () => {
     if (scrollRef.current && modalRef.current) {
       scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
       closeByClick = true;
