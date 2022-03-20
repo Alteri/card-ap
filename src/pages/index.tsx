@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../fetchCards";
 import { CardsState } from "../reducer";
+import { addCard } from "../action";
+import { CardProps } from "../types";
 import { Container } from "../components/Container";
 import { CardList } from "../components/CardList";
 import { NavigationBar } from "../components/NavigationBar";
 import { IconButton } from "../components/IconButton";
 import { Plus } from "../components/Icon/";
-import { PopupModal } from "../components/PopupModal";
+import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
 
 const index = () => {
@@ -22,6 +24,11 @@ const index = () => {
 
   const [openModal, setOpenModal] = useState(false);
 
+  const onSubmit = (data: CardProps) => {
+    dispatch(addCard(data));
+    closeModal();
+  };
+
   return (
     <>
       <Container>
@@ -33,7 +40,7 @@ const index = () => {
         open={openModal}
         onClose={() => setOpenModal(!openModal)}
       >
-        <AddCardForm />
+        <AddCardForm onSubmitFunc={onSubmit} />
       </PopupModal>
       <NavigationBar>
         <IconButton onClick={() => setOpenModal(!openModal)}>

@@ -1,1 +1,1 @@
-export { PopupModal } from "./PopupModal";
+export { PopupModal, closeModal } from "./PopupModal";
