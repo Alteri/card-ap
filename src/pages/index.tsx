@@ -27,6 +27,7 @@ const index = () => {
   const onSubmit = (data: CardProps) => {
     dispatch(addCard(data));
     closeModal();
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
 
   return (
