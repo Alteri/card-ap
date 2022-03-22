@@ -1,12 +1,14 @@
 import { Action } from "./action";
-import { CardProps } from "./types";
+import { CardProps, TeamProps } from "./types";
 
 export type CardsState = {
   cards: CardProps[];
+  teams: TeamProps[];
 };
 
 const initialState = {
   cards: [],
+  teams: [],
   error: false,
 };
 
@@ -34,6 +36,16 @@ export const rootReducer = (
       return {
         ...state,
         cards: [...state.cards, action.payload],
+      };
+    case "FETCH_TEAMS_SUCCESS":
+      return {
+        ...state,
+        teams: action.payload,
+      };
+    case "FETCH_TEAMS_ERROR":
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
