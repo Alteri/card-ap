@@ -14,15 +14,16 @@ import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Team, Clock, X } from "../Icon";
 import { TaskIcon } from "../TaskIcon";
-import { TaskType } from "../../types";
+import { TaskType, TeamType } from "../../types";
 
 export type CardItemProps = {
   title: string;
   taskType: TaskType;
   id: number;
+  teamName: TeamType;
 };
 
-export const CardItem = ({ title, taskType, id }: CardItemProps) => {
+export const CardItem = ({ title, taskType, teamName, id }: CardItemProps) => {
   const dispatch = useDispatch();
   function cardRemove(index: number) {
     dispatch(removeCard(index));
@@ -38,7 +39,7 @@ export const CardItem = ({ title, taskType, id }: CardItemProps) => {
         <RowWithIcon>
           <Team color={Colors.gray400} />
           <Text color={Colors.gray400} fontWeight="200" textType="caption">
-            Marketing Team
+            {teamName} Team
           </Text>
         </RowWithIcon>
         <RowWithIcon>

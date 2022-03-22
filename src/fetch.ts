@@ -8,7 +8,7 @@ import {
 
 export const fetchCards = () => (dispatch: any) => {
   axios
-    .get(`https://run.mocky.io/v3/3dc7b958-2e1c-4657-9871-479c22a54f29`)
+    .get(`https://run.mocky.io/v3/8d3a6b47-321f-4efe-97e5-fce4d1354798`)
     .then((response) => {
       dispatch(fetchCardSuccess(response.data));
     })
