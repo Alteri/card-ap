@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCards } from "../fetchCards";
+import { fetchCards, fetchTeams } from "../fetch";
 import { CardsState } from "../reducer";
 import { addCard } from "../action";
 import { CardProps } from "../types";
@@ -16,6 +16,7 @@ const index = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCards());
+    dispatch(fetchTeams());
   }, [dispatch]);
 
   const cardsArr = useSelector<CardsState, CardsState["cards"]>(
