@@ -1,7 +1,7 @@
 import { Action } from "./action";
 import { CardProps, TeamProps } from "./types";
 
-export type CardsState = {
+export type StateProps = {
   cards: CardProps[];
   teams: TeamProps[];
 };
@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export const rootReducer = (
-  state: CardsState = initialState,
+  state: StateProps = initialState,
   action: Action
 ) => {
   switch (action.type) {

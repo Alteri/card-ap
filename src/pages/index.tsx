@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards, fetchTeams } from "../fetch";
-import { CardsState } from "../reducer";
+import { StateProps } from "../reducer";
 import { addCard } from "../action";
 import { CardProps } from "../types";
 import { Container } from "../components/Container";
@@ -19,8 +19,12 @@ const index = () => {
     dispatch(fetchTeams());
   }, [dispatch]);
 
-  const cardsArr = useSelector<CardsState, CardsState["cards"]>(
+  const cardsArr = useSelector<StateProps, StateProps["cards"]>(
     (state) => state.cards
+  );
+
+  const teamsArr = useSelector<StateProps, StateProps["teams"]>(
+    (state) => state.teams
   );
 
   const [openModal, setOpenModal] = useState(false);
@@ -34,7 +38,7 @@ const index = () => {
   return (
     <>
       <Container>
-        <CardList itemList={cardsArr} />
+        <CardList itemList={cardsArr} teamList={teamsArr} />
       </Container>
       <PopupModal
         title="New card"

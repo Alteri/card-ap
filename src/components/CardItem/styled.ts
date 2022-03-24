@@ -53,3 +53,15 @@ export const RowWithIcon = styled.div`
 export const FooterLeftColumn = styled.div``;
 
 export const FooterRightColumn = styled.div``;
+
+export const MembersWrapper = styled.div`
+  display: flex;
+  grid-gap: 8px;
+`;
+
+export const MemberItem = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+`;

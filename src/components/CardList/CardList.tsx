@@ -1,14 +1,15 @@
 import React, { ReactNode } from "react";
 import { CardListStyled } from "./styled";
-import { CardsState } from "../../reducer";
+import { StateProps } from "../../reducer";
 import { CardItem } from "../CardItem";
 
 export type CardListProps = {
   children?: ReactNode;
-  itemList: CardsState["cards"];
+  itemList: StateProps["cards"];
+  teamList: StateProps["teams"];
 };
 
-export const CardList = ({ itemList }: CardListProps) => {
+export const CardList = ({ itemList, teamList }: CardListProps) => {
   return (
     <CardListStyled>
       {itemList.map(({ title, group, team }, index) => {
@@ -18,6 +19,7 @@ export const CardList = ({ itemList }: CardListProps) => {
             taskType={group}
             teamName={team}
             key={index}
+            teamList={teamList}
             id={index}
           />
         );
