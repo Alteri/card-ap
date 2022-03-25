@@ -17,6 +17,7 @@ export type CardProps = {
   title: string;
   group: TaskType;
   team: TeamType;
+  dueDate: string;
 };
 
 export type TeamProps = {

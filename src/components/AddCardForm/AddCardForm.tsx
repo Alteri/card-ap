@@ -19,6 +19,7 @@ export const AddCardForm = ({ onSubmitFunc }: AddCardFormProps) => {
       title: "",
       group: TaskType.AppDevelopment,
       team: TeamType.Develop,
+      dueDate: "",
     },
   });
 
@@ -30,6 +31,7 @@ export const AddCardForm = ({ onSubmitFunc }: AddCardFormProps) => {
             <Input name="title" label="Title" type="text" />
             <Select name="group" label="Group" options={groupOptions} />
             <Select name="team" label="Team" options={teamOption} />
+            <Input name="dueDate" label="Due date" type="date" />
             <Button>Submit</Button>
           </Grid>
         </form>
