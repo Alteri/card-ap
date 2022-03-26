@@ -17,7 +17,7 @@ import { Grid } from "../Grid";
 import { Team, Clock, X } from "../Icon";
 import { TaskIcon } from "../TaskIcon";
 import { StateProps } from "../../reducer";
-import { GetDueDate, RandomDate } from "../utils/GetDueDate";
+import { GetDueDate } from "../utils/GetDueDate";
 
 export type CardItemProps = {
   itemList: StateProps["cards"];
@@ -35,7 +35,7 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
       {itemList.map(({ title, group, team, dueDate }, index) => {
         const filterTeamList = teamList.filter(({ name }) => name == team)[0];
         return (
-          <CardItemStytled taskType={group}>
+          <CardItemStytled taskType={group} key={index}>
             <ButtonRemoveCard onClick={() => cardRemove(index)}>
               <X color={Colors.black} />
             </ButtonRemoveCard>
@@ -59,7 +59,7 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
                   fontWeight="200"
                   textType="caption"
                 >
-                  {dueDate ? GetDueDate(dueDate) : RandomDate()}
+                  {GetDueDate(dueDate)}
                 </Text>
               </RowWithIcon>
             </CardItemHeader>

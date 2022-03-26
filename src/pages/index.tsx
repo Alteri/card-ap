@@ -13,12 +13,6 @@ import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
 
 const index = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCards());
-    dispatch(fetchTeams());
-  }, [dispatch]);
-
   const cardsArr = useSelector<StateProps, StateProps["cards"]>(
     (state) => state.cards
   );
@@ -26,8 +20,13 @@ const index = () => {
   const teamsArr = useSelector<StateProps, StateProps["teams"]>(
     (state) => state.teams
   );
-
+  const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchCards());
+    dispatch(fetchTeams());
+  }, [dispatch]);
 
   const onSubmit = (data: CardProps) => {
     dispatch(addCard(data));
