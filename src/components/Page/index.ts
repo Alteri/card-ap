@@ -1,1 +1,1 @@
-export { Page } from "./styled";
+export { Page } from "./Page";

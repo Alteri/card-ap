@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCards, fetchTeams } from "../fetch";
 import { StateProps } from "../reducer";
 import { addCard } from "../action";
 import { CardProps } from "../types";
@@ -13,6 +12,9 @@ import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
 
 const index = () => {
+  const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(false);
+
   const cardsArr = useSelector<StateProps, StateProps["cards"]>(
     (state) => state.cards
   );
@@ -20,13 +22,6 @@ const index = () => {
   const teamsArr = useSelector<StateProps, StateProps["teams"]>(
     (state) => state.teams
   );
-  const dispatch = useDispatch();
-  const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => {
-    dispatch(fetchCards());
-    dispatch(fetchTeams());
-  }, [dispatch]);
 
   const onSubmit = (data: CardProps) => {
     dispatch(addCard(data));

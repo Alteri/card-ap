@@ -5,4 +5,5 @@ export const CardListStyled = styled.div`
   flex-wrap: wrap;
   grid-gap: 64px;
   padding-top: 2em;
+  width: 100%;
 `;

@@ -42,17 +42,11 @@ export const CardItemHeader = styled(Grid)`
   border-bottom: 1px solid ${Colors.gray200};
 `;
 
-export const CardItemFooter = styled(Grid)``;
-
 export const RowWithIcon = styled.div`
   display: flex;
   align-items: center;
   grid-gap: 12px;
 `;
-
-export const FooterLeftColumn = styled.div``;
-
-export const FooterRightColumn = styled.div``;
 
 export const MembersWrapper = styled.div`
   display: flex;
