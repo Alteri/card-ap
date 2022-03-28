@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Colors } from "../Global";
 
-export const NavigationBar = styled.div`
+export const NavigationBarStyled = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -13,4 +13,33 @@ export const NavigationBar = styled.div`
   border-radius: 32px 32px 0 0;
   z-index: 1;
   margin-top: 20px;
+`;
+
+export const MenuList = styled.ul`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const MenuItem = styled.li`
+  width: 100%;
+  height: 100%;
+`;
+
+export const MenuItemLink = styled.a`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: ${Colors.white};
+  transition: all 0.5s ease;
+  border-radius: 32px 32px 0 0;
+
+  &:hover {
+    background: ${Colors.primary};
+  }
 `;

@@ -8,7 +8,7 @@ export const IconButtonStyled = styled(ButtonStyled)`
   padding: 8px 10px;
   line-height: 1;
   border: 8px solid ${Colors.primaryLight};
-  position: relative;
+  position: absolute;
   top: -20px;
 
   &:hover {

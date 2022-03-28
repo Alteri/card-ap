@@ -6,8 +6,6 @@ import { CardProps } from "../types";
 import { Container } from "../components/Container";
 import { CardList } from "../components/CardList";
 import { NavigationBar } from "../components/NavigationBar";
-import { IconButton } from "../components/IconButton";
-import { Plus } from "../components/Icon/";
 import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
 
@@ -42,11 +40,7 @@ const index = () => {
       >
         <AddCardForm onSubmitFunc={onSubmit} />
       </PopupModal>
-      <NavigationBar>
-        <IconButton onClick={() => setOpenModal(!openModal)}>
-          <Plus />
-        </IconButton>
-      </NavigationBar>
+      <NavigationBar modalAction={() => setOpenModal(!openModal)} />
     </>
   );
 };
