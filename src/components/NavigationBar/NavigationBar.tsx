@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import {
   NavigationBarStyled,
@@ -14,20 +15,25 @@ export type NavigationBarProps = {
   modalAction: () => void;
 };
 
+const menuItems = [
+  { title: "Tasks", path: HomePageUrl },
+  { title: "Teams", path: TeamsPageUrl },
+];
+
 export const NavigationBar = ({ modalAction }: NavigationBarProps) => {
+  const router = useRouter();
   return (
     <NavigationBarStyled>
       <MenuList>
-        <MenuItem>
-          <Link href={HomePageUrl}>
-            <MenuItemLink>Cards</MenuItemLink>
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link href={TeamsPageUrl}>
-            <MenuItemLink>Teams</MenuItemLink>
-          </Link>
-        </MenuItem>
+        {menuItems.map(({ title, path }, index) => (
+          <MenuItem key={index}>
+            <Link href={path}>
+              <MenuItemLink active={router.pathname == path}>
+                {title}
+              </MenuItemLink>
+            </Link>
+          </MenuItem>
+        ))}
       </MenuList>
       <IconButton onClick={modalAction}>
         <Plus />

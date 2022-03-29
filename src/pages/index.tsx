@@ -4,7 +4,8 @@ import { StateProps } from "../reducer";
 import { addCard } from "../action";
 import { CardProps } from "../types";
 import { Container } from "../components/Container";
-import { CardList } from "../components/CardList";
+import { ListWrapper } from "../components/ListWrapper";
+import { CardItem } from "../components/CardItem";
 import { NavigationBar } from "../components/NavigationBar";
 import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
@@ -30,7 +31,9 @@ const index = () => {
   return (
     <>
       <Container>
-        <CardList itemList={cardsArr} teamList={teamsArr} />
+        <ListWrapper>
+          <CardItem itemList={cardsArr} teamList={teamsArr} />
+        </ListWrapper>
       </Container>
       <PopupModal
         title="New card"
