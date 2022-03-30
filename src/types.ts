@@ -16,12 +16,12 @@ export enum TeamType {
 export type CardProps = {
   title: string;
   group: TaskType;
-  team: TeamType;
+  team: string;
   dueDate: string;
 };
 
 export type TeamProps = {
-  name: TeamType;
+  name: string;
   members: {
     name: string;
     link: string;

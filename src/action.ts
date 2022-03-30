@@ -30,13 +30,19 @@ export type FetchTeamErrorProps = {
   payload: string;
 };
 
+export type AddTeamProps = {
+  type: "ADD_TEAM";
+  payload: TeamProps;
+};
+
 export type Action =
   | FetchCardSuccessProps
   | FetchCardErrorProps
   | RemoveCardProps
   | AddCardProps
   | FetchTeamSuccessProps
-  | FetchTeamErrorProps;
+  | FetchTeamErrorProps
+  | AddTeamProps;
 
 export const fetchCardSuccess = (card: CardProps[]): FetchCardSuccessProps => ({
   type: "FETCH_CARDS_SUCCESS",
@@ -66,4 +72,9 @@ export const fetchTeamSuccess = (team: TeamProps[]): FetchTeamSuccessProps => ({
 export const fetchTeamError = (error: string): FetchTeamErrorProps => ({
   type: "FETCH_TEAMS_ERROR",
   payload: error,
+});
+
+export const addTeam = (team: TeamProps): AddTeamProps => ({
+  type: "ADD_TEAM",
+  payload: team,
 });

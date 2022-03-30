@@ -31,7 +31,7 @@ const index = () => {
   return (
     <>
       <Container>
-        <ListWrapper>
+        <ListWrapper gap="64">
           <CardItem itemList={cardsArr} teamList={teamsArr} />
         </ListWrapper>
       </Container>

@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import { AddCardFormStyled } from "./styled";
 import { TaskType, TeamType, CardProps } from "../../types";
 import { Input, Select } from "../Form";
 import { Grid } from "../Grid";
@@ -24,18 +23,16 @@ export const AddCardForm = ({ onSubmitFunc }: AddCardFormProps) => {
   });
 
   return (
-    <AddCardFormStyled>
-      <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmitFunc)}>
-          <Grid gap="16">
-            <Input name="title" label="Title" type="text" />
-            <Select name="group" label="Group" options={groupOptions} />
-            <Select name="team" label="Team" options={teamOption} />
-            <Input name="dueDate" label="Due date" type="date" />
-            <Button>Submit</Button>
-          </Grid>
-        </form>
-      </FormProvider>
-    </AddCardFormStyled>
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmitFunc)}>
+        <Grid gap="16">
+          <Input name="title" label="Title" type="text" />
+          <Select name="group" label="Group" options={groupOptions} />
+          <Select name="team" label="Team" options={teamOption} />
+          <Input name="dueDate" label="Due date" type="date" />
+          <Button>Submit</Button>
+        </Grid>
+      </form>
+    </FormProvider>
   );
 };
