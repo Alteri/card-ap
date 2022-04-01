@@ -47,6 +47,11 @@ export const rootReducer = (
         ...state,
         error: action.payload,
       };
+    case "ADD_TEAM":
+      return {
+        ...state,
+        teams: [...state.teams, action.payload],
+      };
     default:
       return state;
   }

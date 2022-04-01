@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StateProps } from "../reducer";
-import { addCard } from "../action";
-import { CardProps } from "../types";
 import { Container } from "../components/Container";
-import { ListWrapper } from "../components/ListWrapper";
-import { CardItem } from "../components/CardItem";
 import { NavigationBar } from "../components/NavigationBar";
 import { PopupModal, closeModal } from "../components/PopupModal";
-import { AddCardForm } from "../components/AddCardForm";
+import { ListWrapper } from "../components/ListWrapper";
+import { TeamItem } from "../components/TeamItem";
+import { AddTeamForm } from "../components/AddTeamForm";
+import { TeamProps } from "../types";
+import { addTeam } from "../action";
 
-const index = () => {
+const Teams = () => {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
-
-  const cardsArr = useSelector<StateProps, StateProps["cards"]>(
-    (state) => state.cards
-  );
 
   const teamsArr = useSelector<StateProps, StateProps["teams"]>(
     (state) => state.teams
   );
 
-  const onSubmit = (data: CardProps) => {
-    dispatch(addCard(data));
+  const onSubmit = (data: TeamProps) => {
+    dispatch(addTeam(data));
     closeModal();
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
@@ -31,21 +27,21 @@ const index = () => {
   return (
     <>
       <Container>
-        <ListWrapper gap="64">
-          <CardItem itemList={cardsArr} teamList={teamsArr} />
+        <ListWrapper gap="32">
+          <TeamItem teamList={teamsArr} />
         </ListWrapper>
       </Container>
       <PopupModal
-        title="New card"
-        subTitle="Add new task for team"
+        title="New team"
+        subTitle="Add new team"
         open={openModal}
         onClose={() => setOpenModal(!openModal)}
       >
-        <AddCardForm onSubmitFunc={onSubmit} teamList={teamsArr} />
+        <AddTeamForm onSubmitFunc={onSubmit} />
       </PopupModal>
       <NavigationBar modalAction={() => setOpenModal(!openModal)} />
     </>
   );
 };
 
-export default index;
+export default Teams;

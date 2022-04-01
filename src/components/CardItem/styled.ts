@@ -14,12 +14,12 @@ export const ButtonRemoveCard = styled.button`
   transition: all 0.5s ease;
 `;
 
-export const CardItemStytled = styled.div<{ taskType?: TaskType }>`
+export const CardItemStytled = styled.li<{ taskType?: TaskType }>`
   display: grid;
   position: relative;
   grid-gap: 24px;
   width: 100%;
-  border-radius: 32px;
+  border-radius: 24px;
   background: ${Colors.white};
   padding: 48px 32px 32px;
   box-shadow: 0 0 8px 2px ${Colors.gray200};

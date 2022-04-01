@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { GridStyled } from "../Grid/styled";
 
-export const CardListStyled = styled.div`
+export const ListWrapperStyled = styled(GridStyled)`
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 64px;
   padding-top: 2em;
   width: 100%;
 `;

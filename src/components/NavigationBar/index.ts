@@ -1,1 +1,1 @@
-export { NavigationBar } from "./styled";
+export { NavigationBar } from "./NavigationBar";
