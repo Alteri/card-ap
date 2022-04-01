@@ -26,7 +26,7 @@ export const AddTeamForm = ({ onSubmitFunc }: AddTeamFormProps) => {
       <form onSubmit={methods.handleSubmit(onSubmitFunc)}>
         <Grid gap="16">
           <Input name="name" label="Name" type="text" />
-          <Text>Members</Text>
+          <Text textType="h4">Members</Text>
           {[...Array(membersQuantity)].map((_, index) => (
             <Grid key={index} gap="8">
               <Text>Member {index + 1}</Text>

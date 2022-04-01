@@ -8,10 +8,11 @@ import { Colors } from "../Global";
 export type SelectProps = {
   label: string;
   name: string;
-  options: string[];
+  options: { value: string; label: string }[];
 };
 
 export const Select = ({ name, label, options }: SelectProps) => {
+  console.log(options);
   return (
     <label>
       <Grid gap="4">
@@ -22,9 +23,9 @@ export const Select = ({ name, label, options }: SelectProps) => {
             return (
               <SelectWrapper>
                 <SelectStyled {...field}>
-                  {options.map((option, index) => (
-                    <option value={option} key={index}>
-                      {option}
+                  {options.map(({ value, label }, index) => (
+                    <option value={value} key={index}>
+                      {label}
                     </option>
                   ))}
                 </SelectStyled>
