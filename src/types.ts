@@ -22,6 +22,8 @@ export type CardProps = {
 
 export type TeamProps = {
   name: string;
+  color: string;
+  iconId: number;
   members: {
     name: string;
     link: string;

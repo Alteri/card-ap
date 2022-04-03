@@ -12,7 +12,6 @@ export type SelectProps = {
 };
 
 export const Select = ({ name, label, options }: SelectProps) => {
-  console.log(options);
   return (
     <label>
       <Grid gap="4">

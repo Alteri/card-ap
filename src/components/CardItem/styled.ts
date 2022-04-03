@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
-import { TaskType } from "../../types";
 
 export const ButtonRemoveCard = styled.button`
   position: absolute;
@@ -14,7 +13,7 @@ export const ButtonRemoveCard = styled.button`
   transition: all 0.5s ease;
 `;
 
-export const CardItemStytled = styled.li<{ taskType?: TaskType }>`
+export const CardItemStyled = styled.li<{ color?: string }>`
   display: grid;
   position: relative;
   grid-gap: 24px;
@@ -26,9 +25,7 @@ export const CardItemStytled = styled.li<{ taskType?: TaskType }>`
   transition: all 0.5s ease;
 
   &:hover {
-    ${({ taskType }) =>
-      taskType &&
-      `box-shadow: 0px 0px 8px 2px ${Colors.taskTypeToColor[taskType]};`}
+    ${({ color }) => color && `box-shadow: 0px 0px 8px 2px ${color};`}
 
     ${ButtonRemoveCard} {
       opacity: 1;

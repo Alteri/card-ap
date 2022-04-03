@@ -7,4 +7,5 @@ export { default as Camera } from "./Icons/Camera";
 export { default as X } from "./Icons/X";
 export { default as Plus } from "./Icons/Plus";
 export { default as ChevronDown } from "./Icons/ChevronDown";
+export { default as Check } from "./Icons/Check";
 export type { IconProps } from "./types";

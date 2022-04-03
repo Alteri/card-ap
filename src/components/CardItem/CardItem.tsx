@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { removeCard } from "../../action";
 import {
-  CardItemStytled,
+  CardItemStyled,
   CardItemHeader,
   RowWithIcon,
   ButtonRemoveCard,
@@ -30,44 +30,55 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
 
   return (
     <>
-      {itemList.map(({ title, group, team, dueDate }, index) => (
-        <CardItemStytled taskType={group} key={index}>
-          <ButtonRemoveCard onClick={() => cardRemove(index)}>
-            <X color={Colors.black} />
-          </ButtonRemoveCard>
-          <CardItemHeader gap="8">
-            <TaskIcon taskType={group} />
-            <Text textType="h3">{title}</Text>
-            <RowWithIcon>
-              <Team color={Colors.gray400} />
-              <Text color={Colors.gray400} fontWeight="200" textType="caption">
-                {team} Team
-              </Text>
-            </RowWithIcon>
-            <RowWithIcon>
-              <Clock color={Colors.gray400} />
-              <Text color={Colors.gray400} fontWeight="200" textType="caption">
-                {GetDueDate(dueDate)}
-              </Text>
-            </RowWithIcon>
-          </CardItemHeader>
-          <Grid templateColumns="70% 30%">
-            <Grid gap="8">
-              <Text fontWeight="600" textType="caption">
-                Team Member
-              </Text>
-              <MembersWrapper>
-                <MemberItem teamList={teamList} team={team} />
-              </MembersWrapper>
+      {itemList.map(({ title, group, team, dueDate }, index) => {
+        const filterTeamList = teamList?.filter(({ name }) => name == team)[0];
+        return (
+          <CardItemStyled color={filterTeamList.color} key={index}>
+            <ButtonRemoveCard onClick={() => cardRemove(index)}>
+              <X color={Colors.black} />
+            </ButtonRemoveCard>
+            <CardItemHeader gap="8">
+              <TaskIcon taskType={group} />
+              <Text textType="h3">{title}</Text>
+              <RowWithIcon>
+                <Team color={Colors.gray400} />
+                <Text
+                  color={Colors.gray400}
+                  fontWeight="200"
+                  textType="caption"
+                >
+                  {team} Team
+                </Text>
+              </RowWithIcon>
+              <RowWithIcon>
+                <Clock color={Colors.gray400} />
+                <Text
+                  color={Colors.gray400}
+                  fontWeight="200"
+                  textType="caption"
+                >
+                  {GetDueDate(dueDate)}
+                </Text>
+              </RowWithIcon>
+            </CardItemHeader>
+            <Grid templateColumns="70% 30%">
+              <Grid gap="8">
+                <Text fontWeight="600" textType="caption">
+                  Team Member
+                </Text>
+                <MembersWrapper>
+                  <MemberItem members={filterTeamList?.members} />
+                </MembersWrapper>
+              </Grid>
+              <Grid>
+                <Text fontWeight="600" textType="caption">
+                  Progress
+                </Text>
+              </Grid>
             </Grid>
-            <Grid>
-              <Text fontWeight="600" textType="caption">
-                Progress
-              </Text>
-            </Grid>
-          </Grid>
-        </CardItemStytled>
-      ))}
+          </CardItemStyled>
+        );
+      })}
     </>
   );
 };

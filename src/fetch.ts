@@ -19,7 +19,7 @@ export const fetchCards = () => (dispatch: any) => {
 
 export const fetchTeams = () => (dispatch: any) => {
   axios
-    .get(`https://run.mocky.io/v3/76e14a87-85b0-41a4-b359-08f8e2512281`)
+    .get(`https://run.mocky.io/v3/02f3a991-a5cd-4c98-97f5-bc531e1fbb99`)
     .then((response) => {
       dispatch(fetchTeamSuccess(response.data));
     })
