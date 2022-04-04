@@ -8,11 +8,10 @@ import { Colors } from "../Global";
 export type SelectProps = {
   label: string;
   name: string;
-  options: { value: string; label: string }[];
+  options: { value: number; label: string }[];
 };
 
 export const Select = ({ name, label, options }: SelectProps) => {
-  console.log(options);
   return (
     <label>
       <Grid gap="4">

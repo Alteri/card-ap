@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { HexColorPicker } from "react-colorful";
 import { Colors } from "../Global";
-import { ChevronDown } from "../Icon";
+import { ChevronDown, Check } from "../Icon";
 
 export const InputStyled = styled.input`
   width: 100%;
@@ -42,4 +43,36 @@ export const SelectIcon = styled(ChevronDown)`
   position: absolute;
   top: 6px;
   right: 6px;
+`;
+
+export const ColorPickerStyled = styled(HexColorPicker)`
+  width: 100% !important;
+`;
+
+export const CustomSelectStyled = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const CustomSelectItem = styled.label<{ isChecked: boolean }>`
+  border: 2px solid ${Colors.gray200};
+  padding: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  position: relative;
+
+  ${({ isChecked }) => isChecked && `border-color: ${Colors.green}`}
+`;
+
+export const CustomCheck = styled(Check)`
+  position: absolute;
+  top: -10px;
+  right: 4px;
+  background: ${Colors.white};
+`;
+
+export const CustomInput = styled.input`
+  display: none;
 `;

@@ -10,6 +10,7 @@ import {
 import { IconButton } from "../IconButton";
 import { Plus } from "../Icon";
 import { HomePageUrl, TeamsPageUrl } from "../../url";
+import { Colors } from "../Global";
 
 export type NavigationBarProps = {
   modalAction: () => void;
@@ -36,7 +37,7 @@ export const NavigationBar = ({ modalAction }: NavigationBarProps) => {
         ))}
       </MenuList>
       <IconButton onClick={modalAction}>
-        <Plus />
+        <Plus color={Colors.white} />
       </IconButton>
     </NavigationBarStyled>
   );

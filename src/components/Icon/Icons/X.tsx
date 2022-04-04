@@ -4,7 +4,7 @@ import { IconWrapper } from "../styled";
 import { Colors } from "../../Global";
 
 const Icon = ({
-  color = Colors.white,
+  color = Colors.black,
   size = "20px",
   className,
   onClick,

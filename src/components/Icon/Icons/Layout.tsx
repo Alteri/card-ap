@@ -13,14 +13,13 @@ const Icon = ({
     <IconWrapper size={size} className={className} {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        id="Filled"
         viewBox="0 0 24 24"
         width={size}
         height={size}
         fill={color}
       >
-        <path d="M15,0H9A5.006,5.006,0,0,0,4,5V16H20V5A5.006,5.006,0,0,0,15,0Z" />
-        <path d="M4,19a5.006,5.006,0,0,0,5,5h6a5.006,5.006,0,0,0,5-5V18H4Zm8,1a1,1,0,1,1-1,1A1,1,0,0,1,12,20Z" />
+        <path fill="none" d="M0 0h24v24H0z" />
+        <path d="M16 21V10h5v10a1 1 0 0 1-1 1h-4zm-2 0H4a1 1 0 0 1-1-1V10h11v11zm7-13H3V4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4z" />
       </svg>
     </IconWrapper>
   );

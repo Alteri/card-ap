@@ -20,11 +20,11 @@ const getTextTypeStyle = (textType: TextType) => {
       `;
     case "h4":
       return css`
-        font-size: 22px;
+        font-size: 20px;
       `;
     case "h5":
       return css`
-        font-size: 20px;
+        font-size: 18px;
       `;
     case "caption":
       return css`
