@@ -8,3 +8,9 @@ export const TeamItemStyled = styled(GridStyled)`
   background: ${Colors.white};
   box-shadow: 0 0 8px 2px ${Colors.gray200};
 `;
+
+export const IdentyWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  grid-gap: 16px;
+`;

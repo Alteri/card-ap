@@ -37,7 +37,7 @@ const Teams = () => {
         open={openModal}
         onClose={() => setOpenModal(!openModal)}
       >
-        <AddTeamForm onSubmitFunc={onSubmit} />
+        <AddTeamForm onSubmitFunc={onSubmit} nextTeamId={teamsArr.length + 1} />
       </PopupModal>
       <NavigationBar modalAction={() => setOpenModal(!openModal)} />
     </>

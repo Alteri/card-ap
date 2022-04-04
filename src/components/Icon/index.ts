@@ -8,4 +8,5 @@ export { default as X } from "./Icons/X";
 export { default as Plus } from "./Icons/Plus";
 export { default as ChevronDown } from "./Icons/ChevronDown";
 export { default as Check } from "./Icons/Check";
+export { default as Layout } from "./Icons/Layout";
 export type { IconProps } from "./types";

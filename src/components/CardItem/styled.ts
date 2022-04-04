@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
+import { TeamIcon } from "../TeamIcon";
 
 export const ButtonRemoveCard = styled.button`
   position: absolute;
@@ -55,4 +56,10 @@ export const MemberItem = styled.img`
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const TeamIconStyled = styled(TeamIcon)`
+  position: absolute;
+  left: 0;
+  top: -78px;
 `;

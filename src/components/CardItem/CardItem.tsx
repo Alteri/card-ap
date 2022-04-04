@@ -7,19 +7,19 @@ import {
   RowWithIcon,
   ButtonRemoveCard,
   MembersWrapper,
+  TeamIconStyled,
 } from "./styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
 import { Team, Clock, X } from "../Icon";
-import { TaskIcon } from "../TaskIcon";
-import { StateProps } from "../../reducer";
+import { CardProps, TeamProps } from "../../types";
 import { GetDueDate } from "../utils/GetDueDate";
 import { MemberItem } from "../MemberItem";
 
 export type CardItemProps = {
-  itemList: StateProps["cards"];
-  teamList: StateProps["teams"];
+  itemList: CardProps[];
+  teamList: TeamProps[];
 };
 
 export const CardItem = ({ itemList, teamList }: CardItemProps) => {
@@ -30,15 +30,18 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
 
   return (
     <>
-      {itemList.map(({ title, group, team, dueDate }, index) => {
-        const filterTeamList = teamList?.filter(({ name }) => name == team)[0];
+      {itemList.map(({ title, teamId, dueDate }, index) => {
+        const filterTeamList = teamList?.filter(({ id }) => id == teamId)[0];
         return (
-          <CardItemStyled color={filterTeamList.color} key={index}>
+          <CardItemStyled color={filterTeamList?.color} key={index}>
             <ButtonRemoveCard onClick={() => cardRemove(index)}>
               <X color={Colors.black} />
             </ButtonRemoveCard>
             <CardItemHeader gap="8">
-              <TaskIcon taskType={group} />
+              <TeamIconStyled
+                iconId={filterTeamList?.iconId}
+                color={filterTeamList?.color}
+              />
               <Text textType="h3">{title}</Text>
               <RowWithIcon>
                 <Team color={Colors.gray400} />
@@ -47,7 +50,7 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
                   fontWeight="200"
                   textType="caption"
                 >
-                  {team} Team
+                  {filterTeamList?.name} Team
                 </Text>
               </RowWithIcon>
               <RowWithIcon>

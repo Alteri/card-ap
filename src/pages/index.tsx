@@ -41,7 +41,11 @@ const index = () => {
         open={openModal}
         onClose={() => setOpenModal(!openModal)}
       >
-        <AddCardForm onSubmitFunc={onSubmit} teamList={teamsArr} />
+        <AddCardForm
+          onSubmitFunc={onSubmit}
+          teamList={teamsArr}
+          nextCardId={cardsArr.length + 1}
+        />
       </PopupModal>
       <NavigationBar modalAction={() => setOpenModal(!openModal)} />
     </>

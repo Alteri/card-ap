@@ -7,10 +7,11 @@ import { Input, CustomSelect, ColorPicker } from "../Form";
 import { Button } from "../Button";
 import { Text } from "../Text";
 import { Colors } from "../Global";
-import { Phone, Camera, Box, Palette } from "../Icon";
+import { Phone, Camera, Box, Palette, Layout } from "../Icon";
 
 export type AddTeamFormProps = {
   onSubmitFunc: (data: TeamProps) => void;
+  nextTeamId: number;
 };
 
 const iconArr = [
@@ -18,12 +19,14 @@ const iconArr = [
   { value: 2, label: <Camera /> },
   { value: 3, label: <Box /> },
   { value: 4, label: <Palette /> },
+  { value: 5, label: <Layout /> },
 ];
 
-export const AddTeamForm = ({ onSubmitFunc }: AddTeamFormProps) => {
+export const AddTeamForm = ({ onSubmitFunc, nextTeamId }: AddTeamFormProps) => {
   const [membersQuantity, setMembersQuantity] = useState(1);
   const methods = useForm<TeamProps>({
     defaultValues: {
+      id: nextTeamId,
       name: "",
       color: "#000",
       iconId: 0,
