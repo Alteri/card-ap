@@ -30,7 +30,7 @@ export const rootReducer = (
     case "REMOVE_CARD":
       return {
         ...state,
-        cards: state.cards.filter((_, index) => index !== action.payload),
+        cards: state.cards.filter(({ id }) => id !== action.payload),
       };
     case "ADD_CARD":
       return {
@@ -51,6 +51,11 @@ export const rootReducer = (
       return {
         ...state,
         teams: [...state.teams, action.payload],
+      };
+    case "REMOVE_TEAM":
+      return {
+        ...state,
+        teams: state.teams.filter(({ id }) => id !== action.payload),
       };
     default:
       return state;

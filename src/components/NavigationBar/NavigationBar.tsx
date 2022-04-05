@@ -17,7 +17,7 @@ export type NavigationBarProps = {
 };
 
 const menuItems = [
-  { title: "Tasks", path: HomePageUrl },
+  { title: "Projects", path: HomePageUrl },
   { title: "Teams", path: TeamsPageUrl },
 ];
 

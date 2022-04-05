@@ -10,8 +10,6 @@ export const ButtonRemoveCard = styled.button`
   cursor: pointer;
   background: none;
   border: none;
-  opacity: 0;
-  transition: all 0.5s ease;
 `;
 
 export const CardItemStyled = styled.li<{ color?: string }>`
@@ -27,10 +25,6 @@ export const CardItemStyled = styled.li<{ color?: string }>`
 
   &:hover {
     ${({ color }) => color && `box-shadow: 0px 0px 8px 2px ${color};`}
-
-    ${ButtonRemoveCard} {
-      opacity: 1;
-    }
   }
 `;
 

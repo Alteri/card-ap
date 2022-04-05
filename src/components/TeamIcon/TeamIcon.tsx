@@ -29,7 +29,7 @@ export const TeamIcon = ({ iconId, color, ...props }: TeamIconProps) => {
   const num = Number(iconId);
   return (
     <TaksIconStyled iconId={iconId} color={color} {...props}>
-      {iconId && getTeamTypeIcon(num)}
+      {getTeamTypeIcon(num)}
     </TaksIconStyled>
   );
 };

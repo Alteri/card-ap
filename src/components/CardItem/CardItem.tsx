@@ -24,18 +24,18 @@ export type CardItemProps = {
 
 export const CardItem = ({ itemList, teamList }: CardItemProps) => {
   const dispatch = useDispatch();
-  function cardRemove(index: number) {
-    dispatch(removeCard(index));
+  function cardRemove(id: number) {
+    dispatch(removeCard(id));
   }
 
   return (
     <>
-      {itemList.map(({ title, teamId, dueDate }, index) => {
+      {itemList.map(({ title, teamId, dueDate, id }, index) => {
         const filterTeamList = teamList?.filter(({ id }) => id == teamId)[0];
         return (
           <CardItemStyled color={filterTeamList?.color} key={index}>
-            <ButtonRemoveCard onClick={() => cardRemove(index)}>
-              <X color={Colors.black} />
+            <ButtonRemoveCard onClick={() => cardRemove(id)}>
+              <X />
             </ButtonRemoveCard>
             <CardItemHeader gap="8">
               <TeamIconStyled

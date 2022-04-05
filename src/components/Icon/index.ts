@@ -9,4 +9,6 @@ export { default as Plus } from "./Icons/Plus";
 export { default as ChevronDown } from "./Icons/ChevronDown";
 export { default as Check } from "./Icons/Check";
 export { default as Layout } from "./Icons/Layout";
+export { default as MoreVertical } from "./Icons/MoreVertical";
+export { default as Trash } from "./Icons/Trash";
 export type { IconProps } from "./types";

@@ -44,7 +44,7 @@ const index = () => {
         <AddCardForm
           onSubmitFunc={onSubmit}
           teamList={teamsArr}
-          nextCardId={cardsArr.length + 1}
+          nextCardId={cardsArr.slice(-1)[0]?.id + 1}
         />
       </PopupModal>
       <NavigationBar modalAction={() => setOpenModal(!openModal)} />
