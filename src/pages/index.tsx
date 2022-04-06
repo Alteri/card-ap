@@ -5,7 +5,7 @@ import { addCard } from "../action";
 import { CardProps } from "../types";
 import { Container } from "../components/Container";
 import { ListWrapper } from "../components/ListWrapper";
-import { CardItem } from "../components/CardItem";
+import { ProjectItem } from "../components/ProjectItem";
 import { NavigationBar } from "../components/NavigationBar";
 import { PopupModal, closeModal } from "../components/PopupModal";
 import { AddCardForm } from "../components/AddCardForm";
@@ -32,7 +32,7 @@ const index = () => {
     <>
       <Container>
         <ListWrapper gap="64">
-          <CardItem itemList={cardsArr} teamList={teamsArr} />
+          <ProjectItem itemList={cardsArr} teamList={teamsArr} />
         </ListWrapper>
       </Container>
       <PopupModal

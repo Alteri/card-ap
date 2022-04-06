@@ -6,10 +6,13 @@ export const CardMenuStyled = styled.div`
   right: 0;
   top: 0;
   height: 100%;
-  padding: 16px;
+  padding: 16px 16px 16px 18px;
+  overflow: hidden;
+  border-radius: 0 24px 24px 0;
 `;
 
 export const MenuWrapper = styled.div<{ color?: string; open: boolean }>`
+  z-index: 1;
   background: #fff;
   position: absolute;
   height: 100%;
@@ -19,12 +22,10 @@ export const MenuWrapper = styled.div<{ color?: string; open: boolean }>`
   padding: 48px 16px 16px;
   transition: all 0.5s ease;
   transform: translate(55px, 0);
-  opacity: 0;
 
   ${({ open }) =>
     open &&
     css`
-      opacity: 1;
       transform: translate(0, 0);
     `}
 
@@ -32,7 +33,7 @@ export const MenuWrapper = styled.div<{ color?: string; open: boolean }>`
 `;
 
 export const MoreVerticalStyled = styled(MoreVertical)<{ open: boolean }>`
-  z-index: 1;
+  z-index: 2;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;

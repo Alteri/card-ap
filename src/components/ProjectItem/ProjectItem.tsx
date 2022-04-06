@@ -5,24 +5,23 @@ import {
   CardItemStyled,
   CardItemHeader,
   RowWithIcon,
-  ButtonRemoveCard,
-  MembersWrapper,
   TeamIconStyled,
 } from "./styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
-import { Team, Clock, X } from "../Icon";
+import { Team, Clock } from "../Icon";
 import { CardProps, TeamProps } from "../../types";
 import { GetDueDate } from "../utils/GetDueDate";
 import { MemberItem } from "../MemberItem";
+import { CardMenu } from "../CardMenu";
 
-export type CardItemProps = {
+export type ProjectItemProps = {
   itemList: CardProps[];
   teamList: TeamProps[];
 };
 
-export const CardItem = ({ itemList, teamList }: CardItemProps) => {
+export const ProjectItem = ({ itemList, teamList }: ProjectItemProps) => {
   const dispatch = useDispatch();
   function cardRemove(id: number) {
     dispatch(removeCard(id));
@@ -33,10 +32,16 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
       {itemList.map(({ title, teamId, dueDate, id }, index) => {
         const filterTeamList = teamList?.filter(({ id }) => id == teamId)[0];
         return (
-          <CardItemStyled color={filterTeamList?.color} key={index}>
-            <ButtonRemoveCard onClick={() => cardRemove(id)}>
-              <X />
-            </ButtonRemoveCard>
+          <CardItemStyled
+            color={filterTeamList?.color}
+            key={index}
+            as="li"
+            gap="24"
+          >
+            <CardMenu
+              removeCard={() => cardRemove(id)}
+              color={filterTeamList?.color}
+            />
             <CardItemHeader gap="8">
               <TeamIconStyled
                 iconId={filterTeamList?.iconId}
@@ -69,9 +74,7 @@ export const CardItem = ({ itemList, teamList }: CardItemProps) => {
                 <Text fontWeight="600" textType="caption">
                   Team Member
                 </Text>
-                <MembersWrapper>
-                  <MemberItem members={filterTeamList?.members} />
-                </MembersWrapper>
+                <MemberItem members={filterTeamList?.members} />
               </Grid>
               <Grid>
                 <Text fontWeight="600" textType="caption">

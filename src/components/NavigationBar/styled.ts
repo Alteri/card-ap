@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../Global";
 
 export const NavigationBarStyled = styled.div`
+  z-index: 3;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -11,7 +12,6 @@ export const NavigationBarStyled = styled.div`
   bottom: 0;
   background: ${Colors.primaryLight};
   border-radius: 24px 24px 0 0;
-  z-index: 1;
   margin-top: 20px;
 `;
 

@@ -3,13 +3,13 @@ import { Colors } from "../Global";
 import { X } from "../Icon";
 
 export const PopupModalStyled = styled.div`
+  z-index: 4;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
-  z-index: 2;
 `;
 
 export const Content = styled.div`

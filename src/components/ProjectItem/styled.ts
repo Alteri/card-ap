@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../Global";
-import { Grid } from "../Grid";
+import { GridStyled } from "../Grid/styled";
 import { TeamIcon } from "../TeamIcon";
 
 export const ButtonRemoveCard = styled.button`
@@ -12,10 +12,8 @@ export const ButtonRemoveCard = styled.button`
   border: none;
 `;
 
-export const CardItemStyled = styled.li<{ color?: string }>`
-  display: grid;
+export const CardItemStyled = styled(GridStyled)<{ color?: string }>`
   position: relative;
-  grid-gap: 24px;
   width: 100%;
   border-radius: 24px;
   background: ${Colors.white};
@@ -28,7 +26,11 @@ export const CardItemStyled = styled.li<{ color?: string }>`
   }
 `;
 
-export const CardItemHeader = styled(Grid)`
+export const WrapperStyled = styled.div`
+  overflow: hidden;
+`;
+
+export const CardItemHeader = styled(GridStyled)`
   position: relative;
   padding-bottom: 24px;
   border-bottom: 1px solid ${Colors.gray200};
