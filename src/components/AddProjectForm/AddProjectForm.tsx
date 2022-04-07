@@ -23,7 +23,7 @@ export const AddProjectForm = ({
 
   const methods = useForm<ProjectProps>({
     defaultValues: {
-      id: nextProjectId,
+      id: nextProjectId ? nextProjectId : 1,
       title: "",
       teamId: 1,
       dueDate: "",
