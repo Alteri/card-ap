@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeCard } from "../../action";
+import { removeProject } from "../../action";
 import {
-  CardItemStyled,
-  CardItemHeader,
+  ProjectItemStyled,
+  ProjectItemHeader,
   RowWithIcon,
   TeamIconStyled,
 } from "./styled";
@@ -11,20 +11,20 @@ import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
 import { Team, Clock } from "../Icon";
-import { CardProps, TeamProps } from "../../types";
+import { ProjectProps, TeamProps } from "../../types";
 import { GetDueDate } from "../utils/GetDueDate";
 import { MemberItem } from "../MemberItem";
 import { CardMenu } from "../CardMenu";
 
 export type ProjectItemProps = {
-  itemList: CardProps[];
+  itemList: ProjectProps[];
   teamList: TeamProps[];
 };
 
 export const ProjectItem = ({ itemList, teamList }: ProjectItemProps) => {
   const dispatch = useDispatch();
-  function cardRemove(id: number) {
-    dispatch(removeCard(id));
+  function projectRemove(id: number) {
+    dispatch(removeProject(id));
   }
 
   return (
@@ -32,17 +32,17 @@ export const ProjectItem = ({ itemList, teamList }: ProjectItemProps) => {
       {itemList.map(({ title, teamId, dueDate, id }, index) => {
         const filterTeamList = teamList?.filter(({ id }) => id == teamId)[0];
         return (
-          <CardItemStyled
+          <ProjectItemStyled
             color={filterTeamList?.color}
             key={index}
             as="li"
             gap="24"
           >
             <CardMenu
-              removeCard={() => cardRemove(id)}
+              removeCard={() => projectRemove(id)}
               color={filterTeamList?.color}
             />
-            <CardItemHeader gap="8">
+            <ProjectItemHeader gap="8">
               <TeamIconStyled
                 iconId={filterTeamList?.iconId}
                 color={filterTeamList?.color}
@@ -68,7 +68,7 @@ export const ProjectItem = ({ itemList, teamList }: ProjectItemProps) => {
                   {GetDueDate(dueDate)}
                 </Text>
               </RowWithIcon>
-            </CardItemHeader>
+            </ProjectItemHeader>
             <Grid templateColumns="70% 30%">
               <Grid gap="8">
                 <Text fontWeight="600" textType="caption">
@@ -82,7 +82,7 @@ export const ProjectItem = ({ itemList, teamList }: ProjectItemProps) => {
                 </Text>
               </Grid>
             </Grid>
-          </CardItemStyled>
+          </ProjectItemStyled>
         );
       })}
     </>

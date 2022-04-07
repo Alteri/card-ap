@@ -3,16 +3,7 @@ import { Colors } from "../Global";
 import { GridStyled } from "../Grid/styled";
 import { TeamIcon } from "../TeamIcon";
 
-export const ButtonRemoveCard = styled.button`
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  cursor: pointer;
-  background: none;
-  border: none;
-`;
-
-export const CardItemStyled = styled(GridStyled)<{ color?: string }>`
+export const ProjectItemStyled = styled(GridStyled)<{ color?: string }>`
   position: relative;
   width: 100%;
   border-radius: 24px;
@@ -30,7 +21,7 @@ export const WrapperStyled = styled.div`
   overflow: hidden;
 `;
 
-export const CardItemHeader = styled(GridStyled)`
+export const ProjectItemHeader = styled(GridStyled)`
   position: relative;
   padding-bottom: 24px;
   border-bottom: 1px solid ${Colors.gray200};

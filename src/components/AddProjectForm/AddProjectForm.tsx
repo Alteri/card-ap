@@ -1,29 +1,29 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import { CardProps, TeamProps } from "../../types";
+import { ProjectProps, TeamProps } from "../../types";
 import { Input, Select } from "../Form";
 import { Grid } from "../Grid";
 import { Button } from "../Button";
 
-export type AddCardFormProps = {
-  onSubmitFunc: (data: CardProps) => void;
+export type AddProjectFormProps = {
+  onSubmitFunc: (data: ProjectProps) => void;
   teamList: TeamProps[];
-  nextCardId: number;
+  nextProjectId: number;
 };
 
-export const AddCardForm = ({
+export const AddProjectForm = ({
   onSubmitFunc,
   teamList,
-  nextCardId,
-}: AddCardFormProps) => {
+  nextProjectId,
+}: AddProjectFormProps) => {
   const filterTeamList = teamList.map(({ name, id }) => ({
     value: id,
     label: name,
   }));
 
-  const methods = useForm<CardProps>({
+  const methods = useForm<ProjectProps>({
     defaultValues: {
-      id: nextCardId,
+      id: nextProjectId ? nextProjectId : 1,
       title: "",
       teamId: 1,
       dueDate: "",

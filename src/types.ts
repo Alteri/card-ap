@@ -1,4 +1,4 @@
-export type CardProps = {
+export type ProjectProps = {
   id: number;
   title: string;
   teamId: number;
