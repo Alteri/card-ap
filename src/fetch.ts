@@ -1,19 +1,19 @@
 import axios from "axios";
 import {
-  fetchCardSuccess,
-  fetchCardError,
+  fetchProjectSuccess,
+  fetchProjectError,
   fetchTeamSuccess,
   fetchTeamError,
 } from "./action";
 
-export const fetchCards = () => (dispatch: any) => {
+export const fetchProjects = () => (dispatch: any) => {
   axios
     .get(`https://run.mocky.io/v3/3720879b-5bdc-448d-81bf-90d8a11e3bfe`)
     .then((response) => {
-      dispatch(fetchCardSuccess(response.data));
+      dispatch(fetchProjectSuccess(response.data));
     })
     .catch((error) => {
-      dispatch(fetchCardError(error));
+      dispatch(fetchProjectError(error));
     });
 };
 

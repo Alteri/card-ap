@@ -1,13 +1,13 @@
 import { Action } from "./action";
-import { CardProps, TeamProps } from "./types";
+import { ProjectProps, TeamProps } from "./types";
 
 export type StateProps = {
-  cards: CardProps[];
+  projects: ProjectProps[];
   teams: TeamProps[];
 };
 
 const initialState = {
-  cards: [],
+  projects: [],
   teams: [],
   error: false,
 };
@@ -17,25 +17,25 @@ export const rootReducer = (
   action: Action
 ) => {
   switch (action.type) {
-    case "FETCH_CARDS_SUCCESS":
+    case "FETCH_PROJECTS_SUCCESS":
       return {
         ...state,
-        cards: action.payload,
+        projects: action.payload,
       };
-    case "FETCH_CARDS_ERROR":
+    case "FETCH_PROJECTS_ERROR":
       return {
         ...state,
         error: action.payload,
       };
-    case "REMOVE_CARD":
+    case "REMOVE_PROJECT":
       return {
         ...state,
-        cards: state.cards.filter(({ id }) => id !== action.payload),
+        projects: state.projects.filter(({ id }) => id !== action.payload),
       };
-    case "ADD_CARD":
+    case "ADD_PROJECT":
       return {
         ...state,
-        cards: [...state.cards, action.payload],
+        projects: [...state.projects, action.payload],
       };
     case "FETCH_TEAMS_SUCCESS":
       return {

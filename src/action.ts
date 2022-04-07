@@ -1,23 +1,23 @@
-import { CardProps, TeamProps } from "./types";
+import { ProjectProps, TeamProps } from "./types";
 
-export type FetchCardSuccessProps = {
-  type: "FETCH_CARDS_SUCCESS";
-  payload: CardProps[];
+export type FetchProjectSuccessProps = {
+  type: "FETCH_PROJECTS_SUCCESS";
+  payload: ProjectProps[];
 };
 
-export type FetchCardErrorProps = {
-  type: "FETCH_CARDS_ERROR";
+export type FetchProjectErrorProps = {
+  type: "FETCH_PROJECTS_ERROR";
   payload: string;
 };
 
-export type RemoveCardProps = {
-  type: "REMOVE_CARD";
+export type RemoveProjectProps = {
+  type: "REMOVE_PROJECT";
   payload: number;
 };
 
-export type AddCardProps = {
-  type: "ADD_CARD";
-  payload: CardProps;
+export type AddProjectProps = {
+  type: "ADD_PROJECT";
+  payload: ProjectProps;
 };
 
 export type FetchTeamSuccessProps = {
@@ -41,33 +41,35 @@ export type RemoveTeamProps = {
 };
 
 export type Action =
-  | FetchCardSuccessProps
-  | FetchCardErrorProps
-  | RemoveCardProps
-  | AddCardProps
+  | FetchProjectSuccessProps
+  | FetchProjectErrorProps
+  | RemoveProjectProps
+  | AddProjectProps
   | FetchTeamSuccessProps
   | FetchTeamErrorProps
   | AddTeamProps
   | RemoveTeamProps;
 
-export const fetchCardSuccess = (card: CardProps[]): FetchCardSuccessProps => ({
-  type: "FETCH_CARDS_SUCCESS",
-  payload: card,
+export const fetchProjectSuccess = (
+  project: ProjectProps[]
+): FetchProjectSuccessProps => ({
+  type: "FETCH_PROJECTS_SUCCESS",
+  payload: project,
 });
 
-export const fetchCardError = (error: string): FetchCardErrorProps => ({
-  type: "FETCH_CARDS_ERROR",
+export const fetchProjectError = (error: string): FetchProjectErrorProps => ({
+  type: "FETCH_PROJECTS_ERROR",
   payload: error,
 });
 
-export const removeCard = (id: number): RemoveCardProps => ({
-  type: "REMOVE_CARD",
+export const removeProject = (id: number): RemoveProjectProps => ({
+  type: "REMOVE_PROJECT",
   payload: id,
 });
 
-export const addCard = (card: CardProps): AddCardProps => ({
-  type: "ADD_CARD",
-  payload: card,
+export const addProject = (project: ProjectProps): AddProjectProps => ({
+  type: "ADD_PROJECT",
+  payload: project,
 });
 
 export const fetchTeamSuccess = (team: TeamProps[]): FetchTeamSuccessProps => ({
