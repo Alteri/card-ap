@@ -11,4 +11,5 @@ export { default as Check } from "./Icons/Check";
 export { default as Layout } from "./Icons/Layout";
 export { default as MoreVertical } from "./Icons/MoreVertical";
 export { default as Trash } from "./Icons/Trash";
+export { default as Edit } from "./Icons/Edit";
 export type { IconProps } from "./types";

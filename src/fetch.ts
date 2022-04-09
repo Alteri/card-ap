@@ -2,9 +2,9 @@ import axios from "axios";
 import {
   fetchProjectSuccess,
   fetchProjectError,
-  fetchTeamSuccess,
-  fetchTeamError,
-} from "./action";
+} from "./actions/projectActions";
+import { fetchTeamSuccess, fetchTeamError } from "./actions/teamActions";
+import { fetchTaskSuccess, fetchTaskError } from "./actions/taskActions";
 
 export const fetchProjects = () => (dispatch: any) => {
   axios
@@ -25,5 +25,16 @@ export const fetchTeams = () => (dispatch: any) => {
     })
     .catch((error) => {
       dispatch(fetchTeamError(error));
+    });
+};
+
+export const fetchTasks = () => (dispatch: any) => {
+  axios
+    .get(`https://run.mocky.io/v3/8d2ab8ca-e852-4f31-83ac-06e5c88f7806`)
+    .then((response) => {
+      dispatch(fetchTaskSuccess(response.data));
+    })
+    .catch((error) => {
+      dispatch(fetchTaskError(error));
     });
 };

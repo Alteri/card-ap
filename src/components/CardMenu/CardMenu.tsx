@@ -4,24 +4,41 @@ import {
   MenuWrapper,
   MoreVerticalStyled,
   TrashStyled,
+  EditStyled,
+  ListStyled,
 } from "./styled";
 
 export type CardMenuProps = {
   removeCard?: () => void;
+  editPage?: () => void;
+  setActiveCard: () => void;
   color?: string;
 };
 
-export const CardMenu = ({ removeCard, color }: CardMenuProps) => {
+export const CardMenu = ({
+  removeCard,
+  editPage,
+  setActiveCard,
+  color,
+}: CardMenuProps) => {
   const [open, setOpen] = useState(false);
+
+  const currentCard = () => {
+    setActiveCard();
+    setOpen(!open);
+  };
   return (
     <CardMenuStyled>
-      <MoreVerticalStyled onClick={() => setOpen(!open)} open={open} />
+      <MoreVerticalStyled onClick={() => currentCard()} open={open} />
       <MenuWrapper color={color} open={open}>
-        <ul>
+        <ListStyled as="ul" gap="16">
           <li onClick={removeCard}>
             <TrashStyled />
           </li>
-        </ul>
+          <li onClick={editPage}>
+            <EditStyled />
+          </li>
+        </ListStyled>
       </MenuWrapper>
     </CardMenuStyled>
   );

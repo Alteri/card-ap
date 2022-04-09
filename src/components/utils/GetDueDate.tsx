@@ -1,4 +1,4 @@
-export const GetDueDate = (dueDate: string) => {
+export const GetDueDate = (dueDate?: string) => {
   const currentDate = new Date().getTime();
   const one_day = 1000 * 60 * 60 * 24;
   let result = 0;
