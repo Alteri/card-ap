@@ -15,3 +15,11 @@ export type TeamProps = {
     link: string;
   }[];
 };
+
+export type TaskProps = {
+  id: number;
+  projectId: number;
+  complete: boolean;
+  title: string;
+  description: string;
+};

@@ -1,14 +1,16 @@
-import { Action } from "./action";
-import { ProjectProps, TeamProps } from "./types";
+import { Action } from "./actions";
+import { ProjectProps, TeamProps, TaskProps } from "./types";
 
 export type StateProps = {
   projects: ProjectProps[];
   teams: TeamProps[];
+  tasks: TaskProps[];
 };
 
 const initialState = {
   projects: [],
   teams: [],
+  tasks: [],
   error: false,
 };
 
@@ -56,6 +58,16 @@ export const rootReducer = (
       return {
         ...state,
         teams: state.teams.filter(({ id }) => id !== action.payload),
+      };
+    case "FETCH_TASKS_SUCCESS":
+      return {
+        ...state,
+        tasks: action.payload,
+      };
+    case "FETCH_TASKS_ERROR":
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

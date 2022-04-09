@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { MoreVertical, Trash } from "../Icon";
+import { GridStyled } from "../Grid/styled";
+import { MoreVertical, Trash, Edit } from "../Icon";
 
 export const CardMenuStyled = styled.div`
   position: absolute;
@@ -49,7 +50,17 @@ export const MoreVerticalStyled = styled(MoreVertical)<{ open: boolean }>`
     `}
 `;
 
+export const ListStyled = styled(GridStyled)``;
+
 export const TrashStyled = styled(Trash)`
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const EditStyled = styled(Edit)`
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {

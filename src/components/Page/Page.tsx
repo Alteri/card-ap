@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchProjects, fetchTeams } from "../../fetch";
+import { fetchProjects, fetchTeams, fetchTasks } from "../../fetch";
 import { PageStyled } from "./styled";
 
 export type PageProps = {
@@ -13,6 +13,7 @@ export const Page = ({ children }: PageProps) => {
   useEffect(() => {
     dispatch(fetchProjects());
     dispatch(fetchTeams());
+    dispatch(fetchTasks());
   }, [dispatch]);
 
   return <PageStyled>{children}</PageStyled>;

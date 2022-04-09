@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StateProps } from "../reducer";
-import { addProject } from "../action";
+import { addProject } from "../actions/projectActions";
 import { ProjectProps } from "../types";
 import { Container } from "../components/Container";
 import { ListWrapper } from "../components/ListWrapper";
@@ -22,6 +22,10 @@ const index = () => {
     (state) => state.teams
   );
 
+  const tasksArr = useSelector<StateProps, StateProps["tasks"]>(
+    (state) => state.tasks
+  );
+
   const onSubmit = (data: ProjectProps) => {
     dispatch(addProject(data));
     closeModal();
@@ -32,7 +36,11 @@ const index = () => {
     <>
       <Container>
         <ListWrapper gap="64">
-          <ProjectItem itemList={projectsArr} teamList={teamsArr} />
+          <ProjectItem
+            itemList={projectsArr}
+            teamList={teamsArr}
+            taskList={tasksArr}
+          />
         </ListWrapper>
       </Container>
       <PopupModal

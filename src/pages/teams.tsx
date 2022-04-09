@@ -8,7 +8,7 @@ import { ListWrapper } from "../components/ListWrapper";
 import { TeamItem } from "../components/TeamItem";
 import { AddTeamForm } from "../components/AddTeamForm";
 import { TeamProps } from "../types";
-import { addTeam } from "../action";
+import { addTeam } from "../actions/teamActions";
 
 const Teams = () => {
   const dispatch = useDispatch();

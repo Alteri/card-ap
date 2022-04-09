@@ -43,7 +43,6 @@ export const TextStyled = styled.p<{
   fontWeight?: "200" | "400" | "600";
 }>`
   line-height: 1.2em;
-  width: 100%;
   ${({ textType }) => textType && getTextTypeStyle(textType)}
   ${({ color }) => `color: ${color || Colors.black};`}
   ${({ fontWeight }) => fontWeight && `font-weight: ${fontWeight};`}
