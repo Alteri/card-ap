@@ -3,29 +3,28 @@ import { ProjectProps, TeamProps, TaskProps } from "../../types";
 import { ProjectItemView } from "./ProjectItemView";
 
 export type ProjectItemProps = {
-  itemList: ProjectProps[];
+  projectList: ProjectProps[];
   teamList: TeamProps[];
   taskList: TaskProps[];
 };
 
 export const ProjectItem = ({
-  itemList,
+  projectList,
   teamList,
   taskList,
 }: ProjectItemProps) => {
   return (
     <>
-      {itemList.map(({ title, teamId, dueDate, id }, index) => (
-        <ProjectItemView
-          teamList={teamList}
-          taskList={taskList}
-          title={title}
-          teamId={teamId}
-          dueDate={dueDate}
-          id={id}
-          key={index}
-        />
-      ))}
+      {projectList?.length
+        ? projectList.map((project, index) => (
+            <ProjectItemView
+              teamList={teamList}
+              taskList={taskList}
+              projectItem={project}
+              key={index}
+            />
+          ))
+        : null}
     </>
   );
 };

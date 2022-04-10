@@ -15,6 +15,16 @@ export type UpdateTaskCompleteProps = {
   payload: TaskProps;
 };
 
+export type AddTaskProps = {
+  type: "ADD_TASK";
+  payload: TaskProps;
+};
+
+export type RemoveTaskProps = {
+  type: "REMOVE_TASK";
+  payload: number;
+};
+
 export const fetchTaskSuccess = (task: TaskProps[]): FetchTaskSuccessProps => ({
   type: "FETCH_TASKS_SUCCESS",
   payload: task,
@@ -30,4 +40,14 @@ export const updateTaskComplete = (
 ): UpdateTaskCompleteProps => ({
   type: "UPDATE_TASK_COMPLETE",
   payload: task,
+});
+
+export const addTask = (task: TaskProps): AddTaskProps => ({
+  type: "ADD_TASK",
+  payload: task,
+});
+
+export const removeTask = (id: number): RemoveTaskProps => ({
+  type: "REMOVE_TASK",
+  payload: id,
 });

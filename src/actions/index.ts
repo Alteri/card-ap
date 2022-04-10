@@ -14,6 +14,8 @@ import {
   FetchTaskSuccessProps,
   FetchTaskErrorProps,
   UpdateTaskCompleteProps,
+  AddTaskProps,
+  RemoveTaskProps,
 } from "./taskActions";
 
 export type Action =
@@ -27,4 +29,6 @@ export type Action =
   | RemoveTeamProps
   | FetchTaskSuccessProps
   | FetchTaskErrorProps
-  | UpdateTaskCompleteProps;
+  | UpdateTaskCompleteProps
+  | AddTaskProps
+  | RemoveTaskProps;

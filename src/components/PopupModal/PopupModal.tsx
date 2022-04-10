@@ -91,7 +91,7 @@ export const PopupModal = ({
         <PopupModalStyled ref={scrollRef}>
           <Content ref={modalRef}>
             <ExitIcon color={Colors.black} onClick={() => closeModal()} />
-            <Grid gap="16">
+            <Grid gap="16px">
               <div>
                 <Text textType="h2">{title}</Text>
                 <Text>{subTitle}</Text>

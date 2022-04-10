@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../Global";
+import { Colors, Breakpoints } from "../Global";
 import { X } from "../Icon";
 
 export const CardEditPageStyled = styled.div`
@@ -13,6 +13,10 @@ export const CardEditPageStyled = styled.div`
   background: ${Colors.white};
   z-index: 4;
   padding: 16px;
+
+  @media (min-width: ${Breakpoints.Tablet}) {
+    padding: 32px;
+  }
 `;
 
 export const ExitIcon = styled(X)`

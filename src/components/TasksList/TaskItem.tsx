@@ -17,10 +17,12 @@ import { updateTaskComplete } from "../../actions/taskActions";
 
 type TaskItemProps = {
   task: TaskProps;
+  taskNumber: number;
 };
 
 export const TaskItem = ({
   task: { id, title, projectId, description, complete },
+  taskNumber,
 }: TaskItemProps) => {
   const dispatch = useDispatch();
   const methods = useForm<TaskProps>({
@@ -34,18 +36,17 @@ export const TaskItem = ({
   });
 
   const onSubmit = (data: TaskProps) => {
-    console.log(data);
     dispatch(updateTaskComplete(data));
   };
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <ItemListStyled key={id} as="li" gap="8">
+        <ItemListStyled key={id} as="li" gap="8px">
           <ItemHeaderStyled>
-            <TitleWrapper gap="8">
+            <TitleWrapper gap="8px">
               <TaskId color={Colors.white} textType="caption">
-                {id}
+                {taskNumber + 1}
               </TaskId>
               <Text>{title}</Text>
             </TitleWrapper>

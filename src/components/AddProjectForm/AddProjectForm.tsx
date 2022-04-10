@@ -33,7 +33,7 @@ export const AddProjectForm = ({
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmitFunc)}>
-        <Grid gap="16">
+        <Grid gap="16px">
           <Input name="title" label="Title" type="text" />
           <Select name="teamId" label="Team" options={filterTeamList} />
           <Input name="dueDate" label="Due date" type="date" />

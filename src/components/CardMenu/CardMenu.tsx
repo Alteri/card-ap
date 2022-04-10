@@ -11,7 +11,7 @@ import {
 export type CardMenuProps = {
   removeCard?: () => void;
   editPage?: () => void;
-  setActiveCard: () => void;
+  setActiveCard?: () => void;
   color?: string;
 };
 
@@ -24,20 +24,24 @@ export const CardMenu = ({
   const [open, setOpen] = useState(false);
 
   const currentCard = () => {
-    setActiveCard();
+    setActiveCard?.();
     setOpen(!open);
   };
   return (
     <CardMenuStyled>
       <MoreVerticalStyled onClick={() => currentCard()} open={open} />
       <MenuWrapper color={color} open={open}>
-        <ListStyled as="ul" gap="16">
-          <li onClick={removeCard}>
-            <TrashStyled />
-          </li>
-          <li onClick={editPage}>
-            <EditStyled />
-          </li>
+        <ListStyled as="ul" gap="16px">
+          {removeCard && (
+            <li onClick={removeCard}>
+              <TrashStyled />
+            </li>
+          )}
+          {editPage && (
+            <li onClick={editPage}>
+              <EditStyled />
+            </li>
+          )}
         </ListStyled>
       </MenuWrapper>
     </CardMenuStyled>

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   ProjectItemStyled,
@@ -6,36 +6,32 @@ import {
   TeamIconStyled,
   RowWithIcon,
 } from "./styled";
-import { GetDueDate } from "../utils/GetDueDate";
-import { TeamProps, TaskProps } from "../../types";
+import { TeamProps, TaskProps, ProjectProps } from "../../types";
 import { removeProject } from "../../actions/projectActions";
 import { CardEditPage } from "../CardEditPage";
 import { CardMenu } from "../CardMenu";
 import { Text } from "../Text";
-import { Team, Clock } from "../Icon";
+import { Team } from "../Icon";
 import { Grid } from "../Grid";
 import { Colors } from "../Global";
 import { MemberItem } from "../MemberItem";
+import { DateProject } from "../DateProject";
 
 type ProjectItemViewProps = {
   teamList: TeamProps[];
   taskList: TaskProps[];
-  title: string;
-  dueDate: string;
-  teamId: number;
-  id: number;
+  projectItem: ProjectProps;
 };
 
 export const ProjectItemView = ({
-  title,
-  dueDate,
-  teamId,
-  id,
   teamList,
   taskList,
+  projectItem,
 }: ProjectItemViewProps) => {
   const [editCardActive, setEditCardActive] = useState(false);
   const [activeCardId, setActiveCardId] = useState(0);
+
+  const { id, title, dueDate, teamId } = projectItem;
 
   const dispatch = useDispatch();
   function projectRemove(id: number) {
@@ -62,23 +58,22 @@ export const ProjectItemView = ({
   return (
     <>
       <CardEditPage
-        name={title}
+        projectItem={projectItem}
         team={filterTeamList?.name}
         members={filterTeamList?.members}
-        dueDate={dueDate}
         setOpenEditPage={() => setEditCardActive(!editCardActive)}
         open={editCardActive}
         activeCard={activeCard}
         taskList={filterTaskList}
       />
-      <ProjectItemStyled color={filterTeamList?.color} as="li" gap="24">
+      <ProjectItemStyled color={filterTeamList?.color} as="li" gap="24px">
         <CardMenu
           setActiveCard={() => setActiveCardId(id)}
           removeCard={() => projectRemove(id)}
           editPage={() => setEditCardActive(!editCardActive)}
           color={filterTeamList?.color}
         />
-        <ProjectItemHeader gap="8">
+        <ProjectItemHeader gap="8px">
           <TeamIconStyled
             iconId={filterTeamList?.iconId}
             color={filterTeamList?.color}
@@ -93,36 +88,22 @@ export const ProjectItemView = ({
           <DateProject dueDate={dueDate} />
         </ProjectItemHeader>
         <Grid templateColumns="70% 30%">
-          <Grid gap="8">
+          <Grid gap="8px">
             <Text fontWeight="600" textType="caption">
               Team Member
             </Text>
             <MemberItem members={filterTeamList?.members} />
           </Grid>
-          <Grid>
-            <Text fontWeight="600" textType="caption">
-              Progress
-            </Text>
-            <Text>{progressResult}</Text>
-          </Grid>
+          {filterTaskList.length ? (
+            <Grid>
+              <Text fontWeight="600" textType="caption">
+                Progress
+              </Text>
+              <Text>{progressResult}</Text>
+            </Grid>
+          ) : null}
         </Grid>
       </ProjectItemStyled>
     </>
-  );
-};
-
-export const DateProject = ({ dueDate }: { dueDate?: string }) => {
-  const memoizedValue = useMemo(() => {
-    const projectDate = GetDueDate(dueDate);
-
-    return projectDate;
-  }, [dueDate]);
-  return (
-    <RowWithIcon>
-      <Clock color={Colors.gray400} />
-      <Text color={Colors.gray400} fontWeight="200" textType="caption">
-        {memoizedValue}
-      </Text>
-    </RowWithIcon>
   );
 };
