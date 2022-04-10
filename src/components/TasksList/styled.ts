@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { GridStyled } from "../Grid/styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
+import { InputCheckbox } from "../Form";
 
 export const TasksListStyled = styled(GridStyled)``;
 
@@ -22,7 +23,7 @@ export const TaskId = styled(Text)`
   border-radius: 4px;
 `;
 
-export const CompleteWrapper = styled.div<{ complete: boolean }>`
+export const CompleteWrapper = styled.label<{ complete: boolean }>`
   border: 2px solid ${Colors.gray200};
   border-radius: 4px;
   display: flex;
@@ -30,14 +31,23 @@ export const CompleteWrapper = styled.div<{ complete: boolean }>`
   cursor: pointer;
   transition: all 0.5s ease;
 
+  &:hover {
+    border-color: ${Colors.green};
+  }
+
   ${({ complete }) =>
     complete &&
     css`
       background: ${Colors.green};
       border-color: ${Colors.green};
-    `}
 
-  &:hover {
-    border-color: ${Colors.green};
-  }
+      &:hover {
+        background: ${Colors.green200};
+        border-color: ${Colors.green200};
+      }
+    `}
+`;
+
+export const InputComplete = styled(InputCheckbox)`
+  display: none;
 `;

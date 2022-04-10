@@ -5,7 +5,7 @@ import { X } from "../Icon";
 export const CardEditPageStyled = styled.div`
   position: fixed;
   overflow: auto;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   height: 100%;
   left: 0;

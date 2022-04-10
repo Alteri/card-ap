@@ -7,6 +7,7 @@ export const gray = "#f5f7fa";
 export const gray200 = "#eee";
 export const gray400 = "#8a8b8f";
 export const green = "#17c3a5";
+export const green200 = "#08977e";
 export const blue = "#5096f7";
 export const orange = "#fa8036";
 export const pink = "#ea5a92";

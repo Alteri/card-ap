@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   ProjectItemStyled,
@@ -52,6 +52,12 @@ export const ProjectItemView = ({
 
   const progressResult =
     Math.round((progressAllTasks / filterTaskList.length) * 100) + "%";
+
+  useEffect(() => {
+    editCardActive
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [editCardActive]);
 
   return (
     <>
