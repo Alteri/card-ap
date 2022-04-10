@@ -20,7 +20,7 @@ export const TeamItem = ({ teamList }: TeamItemProps) => {
   return (
     <>
       {teamList.map(({ name, members, color, iconId, id }, index) => (
-        <TeamItemStyled color={color} key={index} as="li" gap="16">
+        <TeamItemStyled color={color} key={index} as="li" gap="16px">
           <CardMenu removeCard={() => teamRemove(id)} color={color} />
           <IdentyWrapper>
             <TeamIcon iconId={iconId} color={color} />

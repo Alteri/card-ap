@@ -5,15 +5,14 @@ import { Team } from "../Icon";
 import { Colors } from "../Global";
 import { Grid } from "../Grid";
 import { MemberItem } from "../MemberItem";
-import { DateProject } from "../ProjectItem/ProjectItemView";
+import { DateProject } from "../DateProject";
 import { TasksList } from "../TasksList";
-import { TaskProps } from "../../types";
+import { TaskProps, ProjectProps } from "../../types";
 
 export type CardEditPageProps = {
-  name: string;
+  projectItem: ProjectProps;
   team?: string;
   members?: { name: string; link: string }[];
-  dueDate?: string;
   open: boolean;
   activeCard: boolean;
   setOpenEditPage: () => void;
@@ -21,13 +20,12 @@ export type CardEditPageProps = {
 };
 
 export const CardEditPage = ({
-  name,
   team,
   members,
-  dueDate,
   open,
   activeCard,
   taskList,
+  projectItem: { id, title, dueDate },
   setOpenEditPage,
   ...props
 }: CardEditPageProps) => {
@@ -36,8 +34,8 @@ export const CardEditPage = ({
       {open && activeCard && (
         <CardEditPageStyled {...props}>
           <ExitIcon onClick={setOpenEditPage} />
-          <Grid gap="12">
-            <Text textType="h2">{name}</Text>
+          <Grid gap="12px">
+            <Text textType="h2">{title}</Text>
             <DateProject dueDate={dueDate} />
             {team && (
               <RowWithIcon>
@@ -46,7 +44,7 @@ export const CardEditPage = ({
               </RowWithIcon>
             )}
             {members && <MemberItem members={members} />}
-            {taskList && <TasksList taskList={taskList} />}
+            {taskList && <TasksList projectId={id} taskList={taskList} />}
           </Grid>
         </CardEditPageStyled>
       )}

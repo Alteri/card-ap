@@ -8,7 +8,7 @@ import { fetchTaskSuccess, fetchTaskError } from "./actions/taskActions";
 
 export const fetchProjects = () => (dispatch: any) => {
   axios
-    .get(`https://run.mocky.io/v3/3720879b-5bdc-448d-81bf-90d8a11e3bfe`)
+    .get(`https://run.mocky.io/v3/8260fb47-294f-4a36-9437-9352d1261d7e`)
     .then((response) => {
       dispatch(fetchProjectSuccess(response.data));
     })

@@ -27,7 +27,7 @@ const Teams = () => {
   return (
     <>
       <Container>
-        <ListWrapper gap="32">
+        <ListWrapper gap="32px">
           <TeamItem teamList={teamsArr} />
         </ListWrapper>
       </Container>

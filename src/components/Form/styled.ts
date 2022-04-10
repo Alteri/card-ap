@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HexColorPicker } from "react-colorful";
-import { Colors } from "../Global";
+import { Colors, Breakpoints } from "../Global";
 import { ChevronDown, Check } from "../Icon";
 
 export const InputStyled = styled.input`
@@ -53,6 +53,12 @@ export const CustomSelectStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 8px;
+
+  @media (min-width: ${Breakpoints.Tablet}) {
+    justify-content: flex-start;
+    gap: 16px;
+  }
 `;
 
 export const CustomSelectItem = styled.label<{ isChecked: boolean }>`

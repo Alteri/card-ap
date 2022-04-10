@@ -18,7 +18,7 @@ export type CustomSelectProps = {
 
 export const CustomSelect = ({ name, label, options }: CustomSelectProps) => {
   return (
-    <Grid gap="4">
+    <Grid gap="4px">
       <Text textType="caption">{label}</Text>
       <Controller
         name={name}

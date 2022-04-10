@@ -73,11 +73,22 @@ export const rootReducer = (
       const index = state.tasks.findIndex(
         (task) => task.id == action.payload.id
       );
-      const newArray = [...state.tasks];
-      newArray[index].complete = action.payload.complete;
       return {
         ...state,
-        tasks: newArray,
+        tasks: [
+          ...state.tasks,
+          (state.tasks[index].complete = action.payload.complete),
+        ],
+      };
+    case "ADD_TASK":
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload],
+      };
+    case "REMOVE_TASK":
+      return {
+        ...state,
+        tasks: state.tasks.filter(({ id }) => id !== action.payload),
       };
     default:
       return state;

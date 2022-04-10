@@ -35,9 +35,9 @@ const index = () => {
   return (
     <>
       <Container>
-        <ListWrapper gap="64">
+        <ListWrapper gap="64px 32px">
           <ProjectItem
-            itemList={projectsArr}
+            projectList={projectsArr}
             teamList={teamsArr}
             taskList={tasksArr}
           />

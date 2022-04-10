@@ -12,7 +12,7 @@ export type ColorPickerProps = {
 export const ColorPicker = ({ label, name }: ColorPickerProps) => {
   return (
     <label>
-      <Grid gap="4">
+      <Grid gap="4px">
         <Text textType="caption">{label}</Text>
         <Controller
           name={name}

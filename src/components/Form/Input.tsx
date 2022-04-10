@@ -13,7 +13,7 @@ export type InputProps = {
 export const Input = ({ name, label, type }: InputProps) => {
   return (
     <label>
-      <Grid gap="4">
+      <Grid gap="4px">
         <Text textType="caption">{label}</Text>
         <Controller
           name={name}

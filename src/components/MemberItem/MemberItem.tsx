@@ -7,7 +7,7 @@ export type MemberItemProps = {
 
 export const MemberItem = ({ members }: MemberItemProps) => {
   return (
-    <MembersWrapper gap="8">
+    <MembersWrapper gap="8px">
       {members?.map(({ link }, index) => (
         <ItemWrapper key={index}>
           {link && <Avatar src={link} key={index} width="100%" />}

@@ -37,7 +37,7 @@ export const AddTeamForm = ({ onSubmitFunc, nextTeamId }: AddTeamFormProps) => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmitFunc)}>
-        <Grid gap="16">
+        <Grid gap="16px">
           <Input name="name" label="Name" type="text" />
           <ColorPicker name="color" label="Color" />
           <CustomSelect label="Icon" name="iconId" options={iconArr} />
