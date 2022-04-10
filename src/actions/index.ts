@@ -10,7 +10,11 @@ import {
   AddTeamProps,
   RemoveTeamProps,
 } from "./teamActions";
-import { FetchTaskSuccessProps, FetchTaskErrorProps } from "./taskActions";
+import {
+  FetchTaskSuccessProps,
+  FetchTaskErrorProps,
+  UpdateTaskCompleteProps,
+} from "./taskActions";
 
 export type Action =
   | FetchProjectSuccessProps
@@ -22,4 +26,5 @@ export type Action =
   | AddTeamProps
   | RemoveTeamProps
   | FetchTaskSuccessProps
-  | FetchTaskErrorProps;
+  | FetchTaskErrorProps
+  | UpdateTaskCompleteProps;

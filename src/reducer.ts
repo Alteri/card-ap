@@ -69,6 +69,16 @@ export const rootReducer = (
         ...state,
         error: action.payload,
       };
+    case "UPDATE_TASK_COMPLETE":
+      const index = state.tasks.findIndex(
+        (task) => task.id == action.payload.id
+      );
+      const newArray = [...state.tasks];
+      newArray[index].complete = action.payload.complete;
+      return {
+        ...state,
+        tasks: newArray,
+      };
     default:
       return state;
   }
