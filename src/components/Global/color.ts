@@ -11,3 +11,4 @@ export const green200 = "#08977e";
 export const blue = "#5096f7";
 export const orange = "#fa8036";
 export const pink = "#ea5a92";
+export const red = "#ff0000";

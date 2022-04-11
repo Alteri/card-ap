@@ -3,6 +3,7 @@ import { GridStyled } from "../Grid/styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
 import { InputCheckbox } from "../Form";
+import { Trash } from "../Icon";
 
 export const TasksListStyled = styled(GridStyled)``;
 
@@ -46,6 +47,21 @@ export const CompleteWrapper = styled.label<{ complete: boolean }>`
         border-color: ${Colors.green200};
       }
     `}
+`;
+
+export const TrashStyled = styled(Trash)`
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const IconsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 export const InputComplete = styled(InputCheckbox)`

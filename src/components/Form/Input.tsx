@@ -3,6 +3,7 @@ import { Controller } from "react-hook-form";
 import { InputStyled } from "./styled";
 import { Text } from "../Text";
 import { Grid } from "../Grid";
+import { Colors } from "../Global";
 
 export type InputProps = {
   label: string;
@@ -17,8 +18,20 @@ export const Input = ({ name, label, type }: InputProps) => {
         <Text textType="caption">{label}</Text>
         <Controller
           name={name}
-          render={({ field }) => {
-            return <InputStyled type={type} {...field} />;
+          rules={{ required: true }}
+          render={({ field, formState: { errors, isSubmitted } }) => {
+            const hasErrors = !!(isSubmitted && errors[name]);
+            console.log(errors);
+            return (
+              <>
+                <InputStyled type={type} {...field} />
+                {hasErrors && (
+                  <Text textType="caption" color={Colors.red}>
+                    This field is required.
+                  </Text>
+                )}
+              </>
+            );
           }}
         />
       </Grid>

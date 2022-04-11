@@ -34,9 +34,9 @@ export const ProjectItemView = ({
   const { id, title, dueDate, teamId } = projectItem;
 
   const dispatch = useDispatch();
-  function projectRemove(id: number) {
+  const projectRemove = (id: number) => {
     dispatch(removeProject(id));
-  }
+  };
 
   const filterTeamList = teamList?.filter(({ id }) => id == teamId)[0];
   const filterTaskList = taskList?.filter(({ projectId }) => projectId == id);

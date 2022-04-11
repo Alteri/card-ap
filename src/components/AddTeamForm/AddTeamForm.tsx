@@ -29,7 +29,7 @@ export const AddTeamForm = ({ onSubmitFunc, nextTeamId }: AddTeamFormProps) => {
       id: nextTeamId,
       name: "",
       color: "#000",
-      iconId: 0,
+      iconId: 1,
       members: [{ name: "", link: "" }],
     },
   });
