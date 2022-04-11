@@ -5,6 +5,7 @@ import { TaskProps } from "../../types";
 import { addTask } from "../../actions/taskActions";
 import { Text } from "../Text";
 import { TaskItem } from "./TaskItem";
+import { Grid } from "../Grid";
 import { AddTaskForm } from "../AddTaskForm";
 
 type TasksListProps = {
@@ -22,15 +23,24 @@ export const TasksList = ({ taskList, projectId }: TasksListProps) => {
   };
 
   return (
-    <>
-      <Text textType="h4">To do List</Text>
-      <Text textType="caption">Result: {progressResult}</Text>
-      <TasksListStyled as="ul" gap="24px">
-        {taskList.map((task, index) => (
-          <TaskItem task={task} key={index} taskNumber={index} />
-        ))}
+    <Grid gap="16px">
+      {taskList.length ? (
+        <>
+          <div>
+            <Text textType="h4">To do List</Text>
+            <Text textType="caption">Result: {progressResult}</Text>
+          </div>
+          <TasksListStyled as="ul" gap="24px">
+            {taskList.map((task, index) => (
+              <TaskItem task={task} key={index} taskNumber={index} />
+            ))}
+          </TasksListStyled>
+        </>
+      ) : null}
+      <Grid gap="8px">
+        <Text>{taskList.length ? "Add new task" : "Add first task"}</Text>
         <AddTaskForm onSubmitFunc={onSubmit} projectId={projectId} />
-      </TasksListStyled>
-    </>
+      </Grid>
+    </Grid>
   );
 };

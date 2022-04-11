@@ -8,12 +8,14 @@ import {
   CompleteWrapper,
   TitleWrapper,
   InputComplete,
+  IconsWrapper,
+  TrashStyled,
 } from "./styled";
 import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Check } from "../Icon";
 import { TaskProps } from "../../types";
-import { updateTaskComplete } from "../../actions/taskActions";
+import { updateTaskComplete, removeTask } from "../../actions/taskActions";
 
 type TaskItemProps = {
   task: TaskProps;
@@ -36,7 +38,12 @@ export const TaskItem = ({
   });
 
   const onSubmit = (data: TaskProps) => {
+    methods.reset();
     dispatch(updateTaskComplete(data));
+  };
+
+  const taskRemove = (id: number) => {
+    dispatch(removeTask(id));
   };
 
   return (
@@ -50,13 +57,16 @@ export const TaskItem = ({
               </TaskId>
               <Text>{title}</Text>
             </TitleWrapper>
-            <CompleteWrapper complete={complete}>
-              <InputComplete
-                name="complete"
-                onChange={methods.handleSubmit(onSubmit)}
-              />
-              <Check color={complete ? Colors.white : Colors.gray400} />
-            </CompleteWrapper>
+            <IconsWrapper>
+              <TrashStyled onClick={() => taskRemove(id)} />
+              <CompleteWrapper complete={complete}>
+                <InputComplete
+                  name="complete"
+                  onChange={methods.handleSubmit(onSubmit)}
+                />
+                <Check color={complete ? Colors.white : Colors.gray400} />
+              </CompleteWrapper>
+            </IconsWrapper>
           </ItemHeaderStyled>
           <Text textType="caption" color={Colors.gray400}>
             {description}
