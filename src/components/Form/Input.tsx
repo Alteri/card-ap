@@ -21,7 +21,6 @@ export const Input = ({ name, label, type }: InputProps) => {
           rules={{ required: true }}
           render={({ field, formState: { errors, isSubmitted } }) => {
             const hasErrors = !!(isSubmitted && errors[name]);
-            console.log(errors);
             return (
               <>
                 <InputStyled type={type} {...field} />

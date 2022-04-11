@@ -73,12 +73,12 @@ export const rootReducer = (
       const index = state.tasks.findIndex(
         (task) => task.id == action.payload.id
       );
+
+      const updateTask = [...state.tasks];
+      updateTask[index].complete = action.payload.complete;
       return {
         ...state,
-        tasks: [
-          ...state.tasks,
-          (state.tasks[index].complete = action.payload.complete),
-        ],
+        tasks: updateTask,
       };
     case "ADD_TASK":
       return {

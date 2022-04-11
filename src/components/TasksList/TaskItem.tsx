@@ -38,7 +38,6 @@ export const TaskItem = ({
   });
 
   const onSubmit = (data: TaskProps) => {
-    methods.reset();
     dispatch(updateTaskComplete(data));
   };
 
