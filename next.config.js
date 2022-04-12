@@ -2,6 +2,6 @@
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  basePath: "/card-ap",
+  basePath: isProd ? "/card-ap" : "",
   assetPrefix: isProd ? "/card-ap/" : "",
 };
