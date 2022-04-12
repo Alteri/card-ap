@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  ProjectItemStyled,
-  ProjectItemHeader,
-  TeamIconStyled,
-  RowWithIcon,
-} from "./styled";
+import { ProjectItemHeader, TeamIconStyled, RowWithIcon } from "./styled";
 import { TeamProps, TaskProps, ProjectProps } from "../../types";
 import { removeProject } from "../../actions/projectActions";
 import { CardEditPage } from "../CardEditPage";
@@ -16,6 +11,7 @@ import { Grid } from "../Grid";
 import { Colors } from "../Global";
 import { MemberItem } from "../MemberItem";
 import { DateProject } from "../DateProject";
+import { CardWrapper } from "../CardWrapper";
 
 type ProjectItemViewProps = {
   teamList: TeamProps[];
@@ -66,7 +62,7 @@ export const ProjectItemView = ({
         activeCard={activeCard}
         taskList={filterTaskList}
       />
-      <ProjectItemStyled color={filterTeamList?.color} as="li" gap="24px">
+      <CardWrapper color={filterTeamList?.color} padding="48px 32px 32px">
         <CardMenu
           setActiveCard={() => setActiveCardId(id)}
           removeCard={() => projectRemove(id)}
@@ -103,7 +99,7 @@ export const ProjectItemView = ({
             </Grid>
           ) : null}
         </Grid>
-      </ProjectItemStyled>
+      </CardWrapper>
     </>
   );
 };

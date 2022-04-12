@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { removeTeam } from "../../actions/teamActions";
-import { TeamItemStyled, IdentyWrapper } from "./styled";
+import { IdentyWrapper } from "./styled";
 import { TeamProps } from "../../types";
 import { MemberItem } from "../MemberItem";
 import { Text } from "../Text";
@@ -9,6 +9,7 @@ import { Colors } from "../Global";
 import { TeamIcon } from "../TeamIcon";
 import { CardMenu } from "../CardMenu";
 import { Separator } from "../Separator";
+import { CardWrapper } from "../CardWrapper";
 
 export type TeamItemProps = { teamList: TeamProps[] };
 
@@ -20,7 +21,7 @@ export const TeamItem = ({ teamList }: TeamItemProps) => {
   return (
     <>
       {teamList.map(({ name, members, color, iconId, id }, index) => (
-        <TeamItemStyled color={color} key={index} as="li" gap="16px">
+        <CardWrapper color={color} key={index} padding="32px">
           <CardMenu removeCard={() => teamRemove(id)} color={color} />
           <IdentyWrapper>
             <TeamIcon iconId={iconId} color={color} />
@@ -33,7 +34,7 @@ export const TeamItem = ({ teamList }: TeamItemProps) => {
           </IdentyWrapper>
           <Separator />
           <MemberItem members={members} />
-        </TeamItemStyled>
+        </CardWrapper>
       ))}
     </>
   );

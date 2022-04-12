@@ -3,21 +3,6 @@ import { Colors } from "../Global";
 import { GridStyled } from "../Grid/styled";
 import { TeamIcon } from "../TeamIcon";
 
-export const ProjectItemStyled = styled(GridStyled)<{ color?: string }>`
-  position: relative;
-  max-width: 100%;
-  width: 100%;
-  border-radius: 24px;
-  background: ${Colors.white};
-  padding: 48px 32px 32px;
-  box-shadow: 0 0 8px 2px ${Colors.gray200};
-  transition: all 0.5s ease;
-
-  &:hover {
-    ${({ color }) => color && `box-shadow: 0px 0px 8px 2px ${color};`}
-  }
-`;
-
 export const WrapperStyled = styled.div`
   overflow: hidden;
 `;
