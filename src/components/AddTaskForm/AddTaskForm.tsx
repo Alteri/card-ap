@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import { TaskProps } from "../../types";
+import { TaskProps } from "types";
 import { Grid } from "../Grid";
 import { Input } from "../Form";
 import { Button } from "../Button";

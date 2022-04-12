@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeTeam } from "../../actions/teamActions";
+import { removeTeam } from "actions/teamActions";
+import { TeamProps } from "types";
 import { IdentyWrapper } from "./styled";
-import { TeamProps } from "../../types";
 import { MemberItem } from "../MemberItem";
 import { Text } from "../Text";
 import { Colors } from "../Global";

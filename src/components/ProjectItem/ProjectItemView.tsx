@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ProjectItemHeader, TeamIconStyled, RowWithIcon } from "./styled";
-import { TeamProps, TaskProps, ProjectProps } from "../../types";
-import { removeProject } from "../../actions/projectActions";
+import { TeamProps, TaskProps, ProjectProps } from "types";
+import { removeProject } from "actions/projectActions";
 import { CardEditPage } from "../CardEditPage";
 import { CardMenu } from "../CardMenu";
 import { Text } from "../Text";

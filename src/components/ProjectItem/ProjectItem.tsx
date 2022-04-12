@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectProps, TeamProps, TaskProps } from "../../types";
+import { ProjectProps, TeamProps, TaskProps } from "types";
 import { ProjectItemView } from "./ProjectItemView";
 
 export type ProjectItemProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import { TaskProps, ProjectProps } from "types";
 import { CardEditPageStyled, ExitIcon, RowWithIcon } from "./styled";
 import { Text } from "../Text";
 import { Team } from "../Icon";
@@ -7,7 +8,6 @@ import { Grid } from "../Grid";
 import { MemberItem } from "../MemberItem";
 import { DateProject } from "../DateProject";
 import { TasksList } from "../TasksList";
-import { TaskProps, ProjectProps } from "../../types";
 
 export type CardEditPageProps = {
   projectItem: ProjectProps;

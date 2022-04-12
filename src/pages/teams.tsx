@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { StateProps } from "../reducer";
-import { Container } from "../components/Container";
-import { NavigationBar } from "../components/NavigationBar";
-import { PopupModal, closeModal } from "../components/PopupModal";
-import { ListWrapper } from "../components/ListWrapper";
-import { TeamItem } from "../components/TeamItem";
-import { AddTeamForm } from "../components/AddTeamForm";
-import { TeamProps } from "../types";
-import { addTeam } from "../actions/teamActions";
+import { StateProps } from "reducer";
+import { Container } from "components/Container";
+import { NavigationBar } from "components/NavigationBar";
+import { PopupModal, closeModal } from "components/PopupModal";
+import { ListWrapper } from "components/ListWrapper";
+import { TeamItem } from "components/TeamItem";
+import { AddTeamForm } from "components/AddTeamForm";
+import { TeamProps } from "types";
+import { addTeam } from "actions/teamActions";
 
 const Teams = () => {
   const dispatch = useDispatch();

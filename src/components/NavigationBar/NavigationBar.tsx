@@ -9,7 +9,7 @@ import {
 } from "./styled";
 import { IconButton } from "../IconButton";
 import { Plus } from "../Icon";
-import { HomePageUrl, TeamsPageUrl } from "../../url";
+import { HomePageUrl, TeamsPageUrl } from "urls";
 import { Colors } from "../Global";
 
 export type NavigationBarProps = {

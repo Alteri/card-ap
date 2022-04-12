@@ -1,4 +1,4 @@
-import { TaskProps } from "../types";
+import { TaskProps } from "types";
 
 export type FetchTaskSuccessProps = {
   type: "FETCH_TASKS_SUCCESS";

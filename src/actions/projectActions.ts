@@ -1,4 +1,4 @@
-import { ProjectProps } from "../types";
+import { ProjectProps } from "types";
 
 export type FetchProjectSuccessProps = {
   type: "FETCH_PROJECTS_SUCCESS";

@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { updateTaskComplete, removeTask } from "actions/taskActions";
 import {
   ItemListStyled,
   ItemHeaderStyled,
@@ -15,7 +16,6 @@ import { Text } from "../Text";
 import { Colors } from "../Global";
 import { Check } from "../Icon";
 import { TaskProps } from "../../types";
-import { updateTaskComplete, removeTask } from "../../actions/taskActions";
 
 type TaskItemProps = {
   task: TaskProps;

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { StateProps } from "../reducer";
-import { addProject } from "../actions/projectActions";
-import { ProjectProps } from "../types";
-import { Container } from "../components/Container";
-import { ListWrapper } from "../components/ListWrapper";
-import { ProjectItem } from "../components/ProjectItem";
-import { NavigationBar } from "../components/NavigationBar";
-import { PopupModal, closeModal } from "../components/PopupModal";
-import { AddProjectForm } from "../components/AddProjectForm";
+import { StateProps } from "reducer";
+import { addProject } from "actions/projectActions";
+import { ProjectProps } from "types";
+import { Container } from "@/components/Container";
+import { ListWrapper } from "@/components/ListWrapper";
+import { ProjectItem } from "@/components/ProjectItem";
+import { NavigationBar } from "@/components/NavigationBar";
+import { PopupModal, closeModal } from "@/components/PopupModal";
+import { AddProjectForm } from "@/components/AddProjectForm";
 
 const index = () => {
   const dispatch = useDispatch();

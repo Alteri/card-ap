@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchProjects, fetchTeams, fetchTasks } from "../../fetch";
+import { fetchProjects, fetchTeams, fetchTasks } from "fetch";
 import { PageStyled } from "./styled";
 
 export type PageProps = {

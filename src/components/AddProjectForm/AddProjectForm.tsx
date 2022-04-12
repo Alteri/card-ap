@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import { ProjectProps, TeamProps } from "../../types";
+import { ProjectProps, TeamProps } from "types";
 import { Input, Select } from "../Form";
 import { Grid } from "../Grid";
 import { Button } from "../Button";

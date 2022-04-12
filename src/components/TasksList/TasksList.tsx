@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { TaskProps } from "types";
+import { addTask } from "actions/taskActions";
 import { TasksListStyled } from "./styled";
-import { TaskProps } from "../../types";
-import { addTask } from "../../actions/taskActions";
 import { Text } from "../Text";
 import { TaskItem } from "./TaskItem";
 import { Grid } from "../Grid";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import { TeamProps } from "types";
 import { NewMemberButton } from "./styled";
-import { TeamProps } from "../../types";
 import { Grid } from "../Grid";
 import { Input, CustomSelect, ColorPicker } from "../Form";
 import { Button } from "../Button";

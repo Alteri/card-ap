@@ -1,4 +1,4 @@
-import { TeamProps } from "../types";
+import { TeamProps } from "types";
 
 export type FetchTeamSuccessProps = {
   type: "FETCH_TEAMS_SUCCESS";
