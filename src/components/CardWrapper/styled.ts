@@ -27,6 +27,7 @@ export const CardWrapperStyled = styled.li<{
   background: ${Colors.white};
   box-shadow: 0 0 8px 2px ${Colors.gray200};
   transition: all 0.5s ease;
+  transform: translate(0, 0);
 
   ${({ padding }) => padding && `padding: ${padding};`}
 
